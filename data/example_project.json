@@ -1,0 +1,38 @@
+{
+    "name": "CGM in the Sky",
+    "github": null,
+    "requirements": [
+        ["dexcom g5", "ios", "pebble original"],
+        ["dexcom g5", "ios", "pebble steel"],
+        ["dexcom g5", "ios", "pebble time"],
+        ["dexcom g5", "ios", "pebble time steel"]
+        ["dexcom g4 share", "ios", "pebble original"],
+        ["dexcom g4 share", "ios", "pebble steel"],
+        ["dexcom g4 share", "ios", "pebble time"],
+        ["dexcom g4 share", "ios", "pebble time steel"]
+        ["dexcom g4 share", "android", "pebble original"],
+        ["dexcom g4 share", "android", "pebble steel"],
+        ["dexcom g4 share", "android", "pebble time"],
+        ["dexcom g4 share", "android", "pebble time steel"]
+        ["dexcom g4", "android", "pebble original"],
+        ["dexcom g4", "android", "pebble steel"],
+        ["dexcom g4", "android", "pebble time"],
+        ["dexcom g4", "android", "pebble time steel"]
+        ["medtronic 530g", "android", "pebble original"],
+        ["medtronic 530g", "android", "pebble steel"],
+        ["medtronic 530g", "android", "pebble time"],
+        ["medtronic 530g", "android", "pebble time steel"]
+        ["medtronic minimed connect", "ios", "pebble original"],
+        ["medtronic minimed connect", "ios", "pebble steel"],
+        ["medtronic minimed connect", "ios", "pebble time"],
+        ["medtronic minimed connect", "ios", "pebble time steel"]
+        ["medtronic 640g", "android", "pebble original"],
+        ["medtronic 640g", "android", "pebble steel"],
+        ["medtronic 640g", "android", "pebble time"],
+        ["medtronic 640g", "android", "pebble time steel"]
+        ["freestyle libre", "android", "pebble original"],
+        ["freestyle libre", "android", "pebble steel"],
+        ["freestyle libre", "android", "pebble time"],
+        ["freestyle libre", "android", "pebble time steel"]
+    ]
+}
