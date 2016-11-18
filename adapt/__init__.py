@@ -1,0 +1,1 @@
+from .adapt import app
