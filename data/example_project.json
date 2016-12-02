@@ -13,17 +13,72 @@
             ["medtronic 640g", "android"],
             ["freestyle libre", "android"]
         ]
-    }, {
+    }, 
+    {
     "name": "CGM in the Sky",
     "github": null,
+    "pebble_store": "https://apps.getpebble.com/en_US/application/56539401713e32fa020000a6?section=watchfaces",
     "requirements": [
         ["nightscout", "pebble"]
     ]
-    }, {
-    "name": "CGM Time",
+    }, 
+    {
+    "name": "Simple CGM Spark",
+    "github": null,
+    "pebble_store": "https://apps.getpebble.com/en_US/application/56534d58d2d67de36d00005f?query=simple%2520cgm%2520spark&section=watchfaces",
+    "requirements": [
+        ["nightscout", "pebble"]
+    ]
+    }, 
+    {
+    "name": "Simple CGM",
+    "github": null,
+    "pebble_store": "https://apps.getpebble.com/en_US/application/557c3091d269ce13b300001a?query=simple%2520cgm&section=watchfaces",
+    "requirements": [
+        ["nightscout", "pebble"]
+    ]
+    },
+    {
+    "name": "Nightscout Duo",
+    "github": null,
+    "pebble_store": "https://apps.getpebble.com/en_US/application/5717e72e02a44b1cf900000e?query=duo&section=watchfaces",
+    "requirements": [
+        ["nightscout", "pebble"]
+    ]
+    }, 
+    {
+    "name": "Urchin",
+    "github": "https://github.com/mddub/urchin-cgm",
+    "pebble_store": null,
+    "requirements": [
+        ["nightscout", "pebble"]
+    ] 
+    },
+    {
+    "name": "Simple CGM Time",
+    "github": null,
+    "pebble_store": "https://apps.getpebble.com/en_US/application/5788797769ee715dd7000262",
+    "requirements": [
+        ["nightscout", "pebble"]
+    ] 
+    },
+    {
+    "name": "Simple CGM Analog",
+    "pebble_store": "https://apps.getpebble.com/en_US/application/578c21b584accc314e0002bf",
     "github": null,
     "requirements": [
+        ["nightscout", "pebble"]
+    ] 
+    },
+    {
+    "name": "Nightscout for Pebble",
+    "pebble_store":"https://apps.getpebble.com/en_US/application/543bfbbcecc29baad0000007?section=watchfaces",
+    "github": null,
+    "requirements": [
+        ["nightscout", "pebble time"],
+        ["nightscout", "pebble time"],
         ["nightscout", "pebble time"]
     ]
-    }]
+    }
+    ]
 }
