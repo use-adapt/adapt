@@ -1,5 +1,6 @@
 {
-    "projects": [{
+    "projects": [
+    {
         "name": "Nightscout",
         "github": "https://github.com/nightscout/cgm-remote-monitor",
         "website": "http://www.nightscout.info/",
@@ -75,9 +76,21 @@
     "pebble_store":"https://apps.getpebble.com/en_US/application/543bfbbcecc29baad0000007?section=watchfaces",
     "github": null,
     "requirements": [
+        ["nightscout", "pebble classic"],
+        ["nightscout", "pebble steel"],
         ["nightscout", "pebble time"],
+        ["nightscout", "pebble time steel"]
+    ]
+    },
+    {
+    "name": "CGM in the Cloud",
+    "pebble_store":"https://apps.getpebble.com/en_US/application/543bfff4ecc29b79790001de?query=CGM%2520in%2520the%2520Cloud&section=watchfaces",
+    "github": null,
+    "requirements": [
+        ["nightscout", "pebble classic"],
+        ["nightscout", "pebble steel"],
         ["nightscout", "pebble time"],
-        ["nightscout", "pebble time"]
+        ["nightscout", "pebble time steel"]
     ]
     }
     ]
