@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "babel src -d lib && browserify lib/* -r immutable -o bundle.js"
+    "build": "babel src -d lib && browserify lib/* -r immutable -o public/bundle.js"
   },
   "repository": {
     "type": "git",
