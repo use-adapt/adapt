@@ -1,6 +1,77 @@
 {
   "projects": [
     {
+      "name": "OpenAPS",
+      "github": "https://github.com/openaps/docs",
+      "website": "http://openaps.readthedocs.io/",
+      "category": "closed-loop systems",
+      "configurations": [
+        ["dexcom g4", "raspberry pi 2 model b", "WiFi adapter", "CareLink USB stick", "micro SD card", "micro-USB cable", "2.1 amp power supply/battery"],
+        ["dexcom g4", "raspberry pi 2 model b", "WiFi adapter", "TI stick", "micro SD card", "micro-USB cable", "2.1 amp power supply/battery"],
+        ["dexcom g4", "raspberry pi 3 model b", "CareLink USB stick", "micro SD card", "micro-USB cable", "2.1 amp power supply/battery"],
+        ["dexcom g4", "raspberry pi 3 model b", "TI stick", "micro SD card", "micro-USB cable", "2.1 amp power supply/battery"],
+
+        ["dexcom g5", "raspberry pi 2 model b", "WiFi adapter", "CareLink USB stick", "micro SD card", "micro-USB cable", "2.1 amp power supply/battery"],
+        ["dexcom g5", "raspberry pi 2 model b", "WiFi adapter", "TI stick", "micro SD card", "micro-USB cable", "2.1 amp power supply/battery"],
+        ["dexcom g5", "raspberry pi 3 model b", "CareLink USB stick", "micro SD card", "micro-USB cable", "2.1 amp power supply/battery"],
+        ["dexcom g5", "raspberry pi 3 model b", "TI stick", "micro SD card", "micro-USB cable", "2.1 amp power supply/battery"],
+
+        ["dexcom g4 with share", "raspberry pi 2 model b", "WiFi adapter", "CareLink USB stick", "micro SD card", "micro-USB cable", "2.1 amp power supply/battery"],
+        ["dexcom g4 with share", "raspberry pi 2 model b", "WiFi adapter", "TI stick", "micro SD card", "micro-USB cable", "2.1 amp power supply/battery"],
+        ["dexcom g4 with share", "raspberry pi 3 model b", "CareLink USB stick", "micro SD card", "micro-USB cable", "2.1 amp power supply/battery"],
+        ["dexcom g4 with share", "raspberry pi 3 model b", "TI stick", "micro SD card", "micro-USB cable", "2.1 amp power supply/battery"],
+
+        ["dexcom g4", "intel edison", "lipo battery", "explorer board"],
+        ["dexcom g4", "intel edison", "lipo battery", "Intel base board", "TI USB stick"],
+        ["dexcom g4", "intel edison", "lipo battery", "Intel base board", "RileyLink"],
+        ["dexcom g4", "intel edison", "lipo battery", "Sparkfun base board", "TI USB stick"],
+        ["dexcom g4", "intel edison", "lipo battery", "Sparkfun base board", "RileyLink"],
+
+        ["dexcom g5", "intel edison", "lipo battery", "explorer board"],
+        ["dexcom g5", "intel edison", "lipo battery", "Intel base board", "TI USB stick"],
+        ["dexcom g5", "intel edison", "lipo battery", "Intel base board", "RileyLink"],
+        ["dexcom g5", "intel edison", "lipo battery", "Sparkfun base board", "TI USB stick"],
+        ["dexcom g5", "intel edison", "lipo battery", "Sparkfun base board", "RileyLink"],
+
+        ["dexcom g4 with share", "intel edison", "lipo battery", "explorer board"],
+        ["dexcom g4 with share", "intel edison", "lipo battery", "Intel base board", "TI USB stick"],
+        ["dexcom g4 with share", "intel edison", "lipo battery", "Intel base board", "RileyLink"],
+        ["dexcom g4 with share", "intel edison", "lipo battery", "Sparkfun base board", "TI USB stick"],
+        ["dexcom g4 with share", "intel edison", "lipo battery", "Sparkfun base board", "RileyLink"]
+      ]
+    },
+    {
+      "name": "OpenOmni",
+      "github": "https://github.com/openaps/openomni",
+      "website": "https://omniaps.slack.com/",
+      "category": "experimental",
+      "configurations": [
+        ["RFCat", "omnipod"],
+        ["TI USB stick", "cc-debugger", "omnipod"]
+      ]
+    },
+    {
+      "name": "Loop",
+      "github": "https://github.com/loopkit/loop",
+      "website": null,
+      "category": "closed-loop systems",
+      "configurations": [
+        ["dexcom g4", "medtronic 515/715", "iOS", "macOS", "RileyLink"],
+        ["dexcom g4", "medtronic 522/722", "iOS", "macOS", "RileyLink"],
+        ["dexcom g4", "medtronic 523/723 w/ <2.4 firmware", "iOS", "macOS", "RileyLink"],
+        ["dexcom g4", "medtronic 554/754 w/ <2.4 firmware", "iOS", "macOS", "RileyLink"],
+        ["dexcom g4 with share", "medtronic 515/715", "iOS", "macOS", "RileyLink"],
+        ["dexcom g4 with share", "medtronic 522/722", "iOS", "macOS", "RileyLink"],
+        ["dexcom g4 with share", "medtronic 523/723 w/ <2.4 firmware", "iOS", "macOS", "RileyLink"],
+        ["dexcom g4 with share", "medtronic 554/754 w/ <2.4 firmware", "iOS", "macOS", "RileyLink"],
+        ["dexcom g5", "medtronic 515/715", "iOS", "macOS", "RileyLink"],
+        ["dexcom g5", "medtronic 522/722", "iOS", "macOS", "RileyLink"],
+        ["dexcom g5", "medtronic 523/723 w/ <2.4 firmware", "iOS", "macOS", "RileyLink"],
+        ["dexcom g5", "medtronic 554/754 w/ <2.4 firmware", "iOS", "macOS", "RileyLink"]
+
+      ]
+    },
+    {
       "name": "Nightscout",
       "github": "https://github.com/nightscout/cgm-remote-monitor",
       "website": "http://www.nightscout.info/",
@@ -149,16 +220,19 @@
     {"services": ["nightscout", "tidepool blip",  "carelink"]},
     {"computer": ["mac", "linux", "windows"]},
     {"phone": ["android, iOS"]},
-    {"cgm": ["dexcom g4", "dexcom g4 with share", "g5", "enlite"]},
-    {"pump": ["medtronic 722/522", "medtronic 723/523", "omnipod", "t:slim", "animas ping", "animas vibe"]},
+    {"cgm": ["dexcom g4", "dexcom g4 with share", "g5", "medtronic enlite", "medtronic revel"]},
+    {"pump": ["medtronic 512/712", "medtronic 515/715", "medtronic 522/722", "medtronic 723/523",
+              "omnipod", "t:slim", "animas ping", "animas vibe"]},
     {"smartwatch": ["pebble classic", "pebble time", "android wear (any)", "apple watch", "samsung gear"]},
-    {"portable commputers": ["raspberry pi 2", "raspberry pi 3", "intel edison"]},
-    {"portable computer add-ons": ["explorer board", "intel base board", "carelink USB stick", "TI stick", "other radio stick"]},
+    {"portable computers": ["raspberry pi 2", "raspberry pi 3", "intel edison"]},
+    {"tools/add-ons": ["explorer board", "intel base board", "carelink USB stick", "TI USB stick",
+                       "cc-debugger", "WiFi adapter", "micro SD card", "2.1 amp power supply/battery"]},
     {"bridges": ["xDrip", "RileyLink"]},
     {"cables": ["micro-USB cable", "mini-USB cable", "USB power supply"]}
   ],
   "project categories": [
     "closed-loop systems",
+    "experimental",
     "services",
     "data vizualization",
     "watchfaces",
