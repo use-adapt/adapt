@@ -75,7 +75,7 @@
       "name": "Nightscout",
       "github": "https://github.com/nightscout/cgm-remote-monitor",
       "website": "http://www.nightscout.info/",
-      "category": "services",
+      "category": "cloud services",
       "configurations": [
         ["dexcom g5", "ios"],
         ["dexcom g4 with share", "ios"],
@@ -178,7 +178,7 @@
       "name": "Tidepool Uploader",
       "website": "http://tidepool.org/products/tidepool-uploader/",
       "github": "https://github.com/tidepool-org/chrome-uploader",
-      "category": "services",
+      "category": "cloud services",
       "configurations": [
         ["dexcom g4", "mac", "micro-USB cable"],
         ["dexcom g4", "windows", "micro-USB cable"],
@@ -216,14 +216,14 @@
     }
   ],
   "requirements": [
-    {"meters": ["verio iq, contour next, contour USB"]},
-    {"services": ["nightscout", "tidepool blip",  "carelink"]},
+    {"meters": ["verio iq", "contour next", "contour USB"]},
+    {"cloud services": ["nightscout", "tidepool blip", "carelink"]},
     {"computer": ["mac", "linux", "windows"]},
     {"phone": ["android, iOS"]},
     {"cgm": ["dexcom g4", "dexcom g4 with share", "g5", "medtronic enlite", "medtronic revel"]},
     {"pump": ["medtronic 512/712", "medtronic 515/715", "medtronic 522/722", "medtronic 723/523",
               "omnipod", "t:slim", "animas ping", "animas vibe"]},
-    {"smartwatch": ["pebble classic", "pebble time", "android wear (any)", "apple watch", "samsung gear"]},
+    {"smartwatches": ["pebble classic", "pebble time", "android wear (any)", "apple watch", "samsung gear"]},
     {"portable computers": ["raspberry pi 2", "raspberry pi 3", "intel edison"]},
     {"tools/add-ons": ["explorer board", "intel base board", "carelink USB stick", "TI USB stick",
                        "cc-debugger", "WiFi adapter", "micro SD card", "2.1 amp power supply/battery"]},
@@ -233,7 +233,7 @@
   "project categories": [
     "closed-loop systems",
     "experimental",
-    "services",
+    "cloud services",
     "data vizualization",
     "watchfaces",
     "watch apps",
