@@ -1,5 +1,6 @@
 # bundled JS
 public/bundle.js
+lib/*
 
 # Logs
 logs
