@@ -1,4 +1,4 @@
-let data = require('../data/example_data.json');
+var DATA = require('../data/example_data.json');
 
 class Project extends React.Component {
   render() {
