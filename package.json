@@ -1,27 +1,28 @@
 {
   "name": "adapt",
   "version": "0.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "babel src -d lib && browserify lib/* -r immutable -o public/bundle.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/jessiepusateri/adapt.git"
-  },
+  "description": "A planning tool for using diabetes-related open source projects.",
   "author": "Jessie Pusateri",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/jessiepusateri/adapt/issues"
   },
   "homepage": "https://github.com/jessiepusateri/adapt#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jessiepusateri/adapt.git"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
   "devDependencies": {
-    "babel-cli": "^6.18.0",
-    "babel-preset-latest": "^6.16.0",
-    "babel-preset-react": "^6.16.0",
-    "browserify": "^13.1.1",
-    "immutable": "^3.8.1"
+    "react-scripts": "0.8.3"
+  },
+  "dependencies": {
+    "react": "^15.4.1",
+    "react-dom": "^15.4.1"
   }
 }
