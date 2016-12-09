@@ -237,19 +237,19 @@
       ]
     }
   ],
-  "requirements": [
-    {"meters": ["verio iq", "contour next", "contour USB"]},
-    {"cloud services": ["nightscout", "tidepool blip", "carelink"]},
-    {"computer": ["mac", "linux", "windows"]},
-    {"phone": ["android, iOS"]},
-    {"cgm": ["dexcom g4", "dexcom g4 with share", "g5", "medtronic enlite", "medtronic revel"]},
-    {"pump": ["medtronic 512/712", "medtronic 515/715", "medtronic 522/722", "medtronic 723/523",
-      "omnipod", "t:slim", "animas ping", "animas vibe"]},
-    {"smartwatches": ["pebble classic", "pebble time", "android wear (any)", "apple watch", "samsung gear"]},
-    {"portable computers": ["raspberry pi 2", "raspberry pi 3", "intel edison"]},
-    {"tools/add-ons": ["explorer board", "intel base board", "carelink USB stick", "TI USB stick",
-        "cc-debugger", "WiFi adapter", "micro SD card", "2.1 amp power supply/battery"]},
-    {"bridges": ["xDrip", "RileyLink"]},
-    {"cables": ["micro-USB cable", "mini-USB cable", "USB power supply"]}
-  ]
+  "requirements": {
+    "meters": ["verio iq", "contour next", "contour USB"],
+    "cloud services": ["nightscout", "tidepool blip", "carelink"],
+    "computer": ["mac", "linux", "windows"],
+    "phone": ["android, iOS"],
+    "cgm": ["dexcom g4", "dexcom g4 with share", "g5", "medtronic enlite", "medtronic revel"],
+    "pump": ["medtronic 512/712", "medtronic 515/715", "medtronic 522/722", "medtronic 723/523",
+     "omnipod", "t:slim", "animas ping", "animas vibe"],
+    "smartwatches": ["pebble classic", "pebble time", "android wear (any)", "apple watch", "samsung gear"],
+    "portable computers": ["raspberry pi 2", "raspberry pi 3", "intel edison"],
+    "tools/add-ons": ["explorer board", "intel base board", "carelink USB stick", "TI USB stick",
+       "cc-debugger", "WiFi adapter", "micro SD card", "2.1 amp power supply/battery"],
+    "bridges": ["xDrip", "RileyLink"],
+    "cables": ["micro-USB cable", "mini-USB cable", "USB power supply"]
+    }
 }

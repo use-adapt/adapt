@@ -2,8 +2,6 @@ import React from 'react';
 import { Button, Header, Table } from 'semantic-ui-react'
 // import FlatButton from 'material-ui/FlatButton';
 
-import sampleData from './sample.json';
-
 class Project extends React.Component {
   render() {
     return (
