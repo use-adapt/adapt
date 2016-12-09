@@ -1,3 +1,7 @@
+let Immutable = require('immutable');
+
+let data = require('../data/example_data.json');
+
 let things_we_have = Immutable.Set(["pebble time", "nightscout"]);
 let everything = []
 let none = []
