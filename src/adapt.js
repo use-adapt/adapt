@@ -1,7 +1,7 @@
 import React from 'react';
-import { Button, Header, Table } from 'semantic-ui-react'
+import { Checkbox, Header } from 'semantic-ui-react'
 
-class Project extends React.Component {
+/*class Project extends React.Component {
   render() {
     return (
       <Button>
@@ -51,19 +51,18 @@ class ProjectSection extends React.Component {
       </div>
     );
   }
-}
+}*/
 
 class Requirement extends React.Component {
   render() {
     return (
-      <Button
+      <Checkbox
         key={this.props.name}
         name={this.props.name}
+        label={this.props.name}
         onClick={this.props.onButtonClick}
         active={this.props.selectStatus[this.props.name]}
-        >
-        {this.props.name}
-      </Button>
+        />
     );
   }
 }
