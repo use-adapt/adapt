@@ -1,13 +1,11 @@
 import React from 'react';
 import { Button, Header, Table } from 'semantic-ui-react'
-// import FlatButton from 'material-ui/FlatButton';
 
 class Project extends React.Component {
   render() {
     return (
-      //<FlatButton label={this.props.project.name} />
       <Button>
-      foobar
+        foobar
       </Button>
     );
   }
@@ -44,12 +42,12 @@ class ProjectSection extends React.Component {
     });
     return (
       <div>
-      <Header>Projects</Header>
-      <Table compact celled>
-        <Table.Body>
-          {categories}
-        </Table.Body>
-      </Table>
+        <Header>Projects</Header>
+        <Table compact celled>
+          <Table.Body>
+            {categories}
+          </Table.Body>
+        </Table>
       </div>
     );
   }
@@ -58,7 +56,12 @@ class ProjectSection extends React.Component {
 class Requirement extends React.Component {
   render() {
     return (
-      <Button>
+      <Button
+        key={this.props.name}
+        name={this.props.name}
+        onClick={this.props.onButtonClick}
+        active={this.props.selectStatus[this.props.name]}
+        >
         {this.props.name}
       </Button>
     );
@@ -67,14 +70,19 @@ class Requirement extends React.Component {
 
 class RequirementCategory extends React.Component {
   render() {
-    var elements = [];
-    this.props.category[this.props.name].forEach((requirement) => {
-      elements.push(<Requirement name={requirement} />)
-    });
+    var elements = this.props.reqs.map((req) => (
+      <Requirement
+        key={req}
+        name={req}
+        onButtonClick={this.props.onButtonClick}
+        selectStatus={this.props.selectStatus}
+        />
+    ));
     return (
-      <Table.Row textAlign='center'>
-        <Table.Cell>{elements}</Table.Cell>
-      </Table.Row>
+      <div key={name}>
+        <h3>{name}</h3>
+        {elements}
+      </div>
     );
   }
 }
@@ -85,51 +93,21 @@ class RequirementSection extends React.Component {
       const reqs = this.props.requirements[name];
       return (
         <div key={name}>
-          <h3>{name}</h3>
-          {reqs.map((req) => (
-            <Button
-              key={req}
-              name={req}
-              onClick={this.props.onButtonClick}
-              active={this.props.selectStatus[req]}
-            >
-              {req}
-            </Button>
-          ))}
+          <RequirementCategory
+            name={name}
+            reqs={reqs}
+            selectStatus={this.props.selectStatus}
+            onButtonClick={this.props.onButtonClick}
+            />
         </div>
       )
     });
 
     return (
       <div>
-      {children}
+        {children}
       </div>
     );
-    //
-    // var categories = []
-    //
-    // this.props.requirements.forEach((req_category) => {
-    //   var key = Object.keys(req_category)[0]
-    //
-    //   categories.push(
-    //     <Table.Row textAlign='center'>
-    //       <Table.Cell>{key}</Table.Cell>
-    //     </Table.Row>
-    //   );
-    //   categories.push(
-    //     <RequirementCategory key={key} name={key} category={req_category} />
-    //   );
-    // });
-    // return (
-    //   <div>
-    //   <Header>Requirements</Header>
-    //   <Table compact celled>
-    //     <Table.Body>
-    //       {categories}
-    //     </Table.Body>
-    //   </Table>
-    //   </div>
-    // );
   }
 }
 
@@ -167,7 +145,7 @@ class Adapt extends React.Component {
           requirements={this.props.data.requirements}
           selectStatus={this.state.selected}
           onButtonClick={this.onButtonClick}
-        />
+          />
         {selectedTexts.join(', ')}
         {/* <ProjectSection projects={this.props.data.projects} /> */}
       </div>
@@ -176,8 +154,3 @@ class Adapt extends React.Component {
 }
 
 export default Adapt;
-
-/*ReactDOM.render(
-  <Adapt data={DATA} />,
-  document.getElementById('Adapt')
-);*/
