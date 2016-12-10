@@ -1,5 +1,5 @@
 import React from 'react';
-import { Checkbox } from 'semantic-ui-react'
+import { Container, Segment, Grid, Checkbox, List} from 'semantic-ui-react'
 
 /*class Project extends React.Component {
   render() {
@@ -70,17 +70,22 @@ class Requirement extends React.Component {
 class RequirementCategory extends React.Component {
   render() {
     var elements = this.props.reqs.map((req) => (
-      <Requirement
+      <List.Item>
+        <Requirement
         name={req}
         onButtonClick={this.props.onButtonClick}
         selectStatus={this.props.selectStatus}
         />
+      </List.Item>
     ));
     return (
-      <div key={this.props.name}>
+      <div>
         <h3>{this.props.name}</h3>
+        <List>
         {elements}
+        </List>
       </div>
+
     );
   }
 }
@@ -91,20 +96,30 @@ class RequirementSection extends React.Component {
       const reqs = this.props.requirements[name];
       return (
         <div key={name}>
+          <Grid.Column verticalAlign='middle' key={this.props.name}>
+          <Segment>
           <RequirementCategory
             name={name}
             reqs={reqs}
             selectStatus={this.props.selectStatus}
             onButtonClick={this.props.onButtonClick}
             />
+          </Segment>
+          </Grid.Column>
         </div>
       )
     });
-
+    var half_length = Math.ceil(children.length / 2);
+    var leftSide = children.splice(0,half_length);
     return (
-      <div>
-        {children}
-      </div>
+      <Grid columns='equal' stretched doubling verticalAlign='middle'>
+        <Grid.Row verticalAlign='middle'>
+        {leftSide}
+        </Grid.Row>
+        <Grid.Row>
+        {leftSide}
+        </Grid.Row>
+      </Grid>
     );
   }
 }
@@ -139,12 +154,14 @@ class Adapt extends React.Component {
     });
     return (
       <div>
+        <Container>
         <RequirementSection
           requirements={this.props.data.requirements}
           selectStatus={this.state.selected}
           onButtonClick={this.onButtonClick}
           />
         {selectedTexts.join(', ')}
+        </Container>
         {/* <ProjectSection projects={this.props.data.projects} /> */}
       </div>
     );
