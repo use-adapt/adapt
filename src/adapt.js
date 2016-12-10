@@ -1,5 +1,5 @@
 import React from 'react';
-import { Checkbox, Header } from 'semantic-ui-react'
+import { Checkbox } from 'semantic-ui-react'
 
 /*class Project extends React.Component {
   render() {
@@ -59,9 +59,9 @@ class Requirement extends React.Component {
       <Checkbox
         key={this.props.name}
         name={this.props.name}
-        label={this.props.name}
-        onClick={this.props.onButtonClick}
-        active={this.props.selectStatus[this.props.name]}
+        label={<label name={this.props.name}>{this.props.name}</label>}
+        onChange={this.props.onButtonClick}
+        checked={this.props.selectStatus[this.props.name]}
         />
     );
   }
@@ -71,15 +71,14 @@ class RequirementCategory extends React.Component {
   render() {
     var elements = this.props.reqs.map((req) => (
       <Requirement
-        key={req}
         name={req}
         onButtonClick={this.props.onButtonClick}
         selectStatus={this.props.selectStatus}
         />
     ));
     return (
-      <div key={name}>
-        <h3>{name}</h3>
+      <div key={this.props.name}>
+        <h3>{this.props.name}</h3>
         {elements}
       </div>
     );
@@ -124,7 +123,7 @@ class Adapt extends React.Component {
   }
 
   onButtonClick = (e) => {
-    const name = e.target.name;
+    const name = e.target.getAttribute('name');
 
     this.setState({
       selected: {
