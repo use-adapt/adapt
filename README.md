@@ -10,7 +10,7 @@ The first step is cloning the repo:
 $ git clone https://github.com/jessiepusateri/adapt.git
 ```
 
-You need the [Yarn](yarnpkg.com/) package manager to build the project. Once you
+You need the [Yarn](https://yarnpkg.com/) package manager to build the project. Once you
 have it installed,
 
 ```
