@@ -110,14 +110,15 @@ class RequirementSection extends React.Component {
       )
     });
     var half_length = Math.ceil(children.length / 2);
-    var leftSide = children.splice(0,half_length);
+    var leftSide = children.slice(0,half_length);
+    var rightSide = children.slice(half_length, children.length);
     return (
       <Grid columns='equal' stretched doubling verticalAlign='middle'>
         <Grid.Row verticalAlign='middle'>
         {leftSide}
         </Grid.Row>
         <Grid.Row>
-        {leftSide}
+        {rightSide}
         </Grid.Row>
       </Grid>
     );
