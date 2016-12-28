@@ -1,5 +1,6 @@
 import React from 'react';
 import { Container, Segment, Grid, Checkbox, List} from 'semantic-ui-react'
+import Immutable from 'immutable';
 
 /*class Project extends React.Component {
   render() {
@@ -125,6 +126,49 @@ class RequirementSection extends React.Component {
   }
 }
 
+class Project extends React.Component {
+  render() {
+    return <div>{this.props.name}</div>;
+  }
+}
+
+class ProjectCategory extends React.Component {
+  render() {
+    console.log(this.props.projects);
+    const items = this.props.projects.map(project =>
+          <List.Item id={project.name}>
+            <Project name={project.name} />
+          </List.Item>
+      );
+    return (
+      <Segment>
+        <h3>{this.props.name}</h3>
+        <List>{items}</List>
+      </Segment>
+    );
+  }
+}
+
+class ProjectSection extends React.Component {
+  render() {
+    console.log(this.props.projects);
+    const projects = Immutable.Map(this.props.projects)
+          .map((categoryProjects, categoryName) =>
+              <Grid.Column verticalAlign='middle' id={categoryName}>
+                <ProjectCategory
+                  name={categoryName}
+                  projects={categoryProjects}
+                />
+              </Grid.Column>
+          ).toList();
+    return (
+      <Grid columns='equal' stackable stretched doubling verticalAlign='middle'>
+        {projects}
+      </Grid>
+    );
+  }
+}
+
 class Adapt extends React.Component {
   constructor(props) {
     super(props);
@@ -162,8 +206,9 @@ class Adapt extends React.Component {
           onButtonClick={this.onButtonClick}
           />
         {selectedTexts.join(', ')}
+        <hr />
+        <ProjectSection projects={this.props.data.projects} />
         </Container>
-        {/* <ProjectSection projects={this.props.data.projects} /> */}
       </div>
     );
   }
