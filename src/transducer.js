@@ -25,26 +25,39 @@ class Transducer {
   /*
    * Determine which projects for which we have all, some, and no dependencies.
    * @param {Immutable.Set} userDeps - the set of selected requirements.
-   * @returns {[Immutable.Set, Immutable.Set, Immutable.Set]}
+   * @returns {all: Immutable.Set, some: Immutable.Set, none: Immutable.Set}
    */
   considerDependencies(userDeps) {
-    const projects = this.projects;
-    let all = new Immutable.Set();
-    let some = new Immutable.Set();
-    let none = new Immutable.Set();
-    for (let p of projects.values()) {
-      for (let deps of p.configurations) {
-        const projectDeps = Immutable.Set(deps);
-        const intersection = projectDeps.intersect(userDeps);
-        if (this.haveAllDependencies(projectDeps, userDeps, intersection))
-          all = all.add(p);
-        else if (this.haveSomeDependencies(projectDeps, userDeps, intersection))
-          some = some.add(p);
-        else if (this.haveNoDependencies(projectDeps, userDeps, intersection))
-          none = none.add(p);
-      }
+    const empty = Immutable.Map({
+      all: new Immutable.Set(),
+      some: new Immutable.Set(),
+      none: new Immutable.Set()
+    });
+    const grouped = this.projects.groupBy(p => this.categorizeProject(p, userDeps));
+    return empty.concat(grouped).toObject();
+  }
+
+  /*
+   * Which group does `project` belong to?
+   * @param {Object} project
+   * @param {string} project.name
+   * @param {string} project.github
+   * @param {string} project.website
+   * @param {string} project.category
+   * @param {string[]} project.configurations - list of lists of dependencies.
+   * @returns {string} all, some, or none.
+   */
+  categorizeProject(project, userDeps) {
+    let some = false;
+    for (let conf of project.configurations) {
+      const projectDeps = Immutable.Set(conf);
+      const intersection = projectDeps.intersect(userDeps);
+      if (this.haveAllDependencies(projectDeps, userDeps, intersection))
+        return "all";
+      else if (this.haveSomeDependencies(projectDeps, userDeps, intersection))
+        some = true;
     }
-    return [all, some, none];
+    return some ? "some" : "none";
   }
 
   /*

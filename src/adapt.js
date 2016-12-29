@@ -130,14 +130,14 @@ class RequirementSection extends React.Component {
 
 class Project extends React.Component {
   render() {
-    if (this.props.allDeps.has(this.props.project)) {
+    if (this.props.deps.all.has(this.props.project)) {
       return <div className='green'>{this.props.name}</div>;
     }
-    else if (this.props.someDeps.has(this.props.project)) {
+    else if (this.props.deps.some.has(this.props.project)) {
       return <div className='yellow'>{this.props.name}</div>;
     }
-    else if (this.props.noDeps.has(this.props.project)) {
-      return <div className='orange'>{this.props.name}</div>;
+    else if (this.props.deps.none.has(this.props.project)) {
+      return <div className='gray'>{this.props.name}</div>;
     }
     else {
       return <div className='gray'>{this.props.name}</div>;
@@ -152,9 +152,7 @@ class ProjectCategory extends React.Component {
             <Project
               name={project.name}
               project={project}
-              allDeps={this.props.allDeps}
-              someDeps={this.props.someDeps}
-              noDeps={this.props.noDeps}
+              deps={this.props.deps}
             />
           </List.Item>
       );
@@ -175,10 +173,7 @@ class ProjectSection extends React.Component {
                 <ProjectCategory
                   name={categoryName}
                   projects={categoryProjects}
-                  allDeps={this.props.allDeps}
-                  someDeps={this.props.someDeps}
-                  noDeps={this.props.noDeps}
-                  selected={this.props.selected}
+                  deps={this.props.deps}
                 />
               </Grid.Column>
           ).toList();
@@ -220,7 +215,7 @@ class Adapt extends React.Component {
     );
     const transducer = new Transducer();
     const userDeps = Immutable.Set(selectedTexts);
-    const [all, some, none] = transducer.considerDependencies(userDeps);
+    const depGroups = transducer.considerDependencies(userDeps);
     return (
       <div>
         <Container>
@@ -233,9 +228,7 @@ class Adapt extends React.Component {
         <hr />
         <ProjectSection
           projects={this.props.data.projects}
-          allDeps={all}
-          someDeps={some}
-          noDeps={none}
+          deps={depGroups}
           selected={this.state.selected}
         />
         </Container>
