@@ -73,7 +73,7 @@ class Requirement extends React.Component {
 class RequirementCategory extends React.Component {
   render() {
     var elements = this.props.reqs.map((req) => (
-      <List.Item>
+      <List.Item key={req}>
         <Requirement
         name={req}
         onButtonClick={this.props.onButtonClick}
@@ -148,7 +148,7 @@ class Project extends React.Component {
 class ProjectCategory extends React.Component {
   render() {
     const items = this.props.projects.map(project =>
-          <List.Item id={project.name}>
+          <List.Item key={project.name}>
             <Project
               name={project.name}
               project={project}
@@ -169,7 +169,7 @@ class ProjectSection extends React.Component {
   render() {
     const projects = Immutable.Map(this.props.projects)
           .map((categoryProjects, categoryName) =>
-              <Grid.Column verticalAlign='middle' id={categoryName}>
+              <Grid.Column verticalAlign='middle' key={categoryName}>
                 <ProjectCategory
                   name={categoryName}
                   projects={categoryProjects}
