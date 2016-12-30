@@ -110,17 +110,9 @@ class RequirementSection extends React.Component {
         </div>
       )
     });
-    var half_length = Math.ceil(children.length / 2);
-    var leftSide = children.slice(0,half_length);
-    var rightSide = children.slice(half_length, children.length);
     return (
-      <Grid columns='equal' stretched doubling verticalAlign='middle'>
-        <Grid.Row verticalAlign='middle'>
-        {leftSide}
-        </Grid.Row>
-        <Grid.Row>
-        {rightSide}
-        </Grid.Row>
+      <Grid columns='equal' centered stackable stretched doubling verticalAlign='middle'>
+        {children}
       </Grid>
     );
   }
@@ -162,7 +154,7 @@ class ProjectSection extends React.Component {
               </Grid.Column>
           ).toList();
     return (
-      <Grid columns='equal' stackable stretched doubling verticalAlign='middle'>
+      <Grid columns='equal' centered stackable stretched doubling verticalAlign='middle'>
         {projects}
       </Grid>
     );
