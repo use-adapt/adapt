@@ -2,6 +2,8 @@ import React from 'react';
 import { Container, Segment, Grid, Checkbox, List} from 'semantic-ui-react'
 import Immutable from 'immutable';
 
+import Transducer from './transducer.js';
+
 /*class Project extends React.Component {
   render() {
     return (
@@ -71,7 +73,7 @@ class Requirement extends React.Component {
 class RequirementCategory extends React.Component {
   render() {
     var elements = this.props.reqs.map((req) => (
-      <List.Item>
+      <List.Item key={req}>
         <Requirement
         name={req}
         onButtonClick={this.props.onButtonClick}
@@ -128,16 +130,30 @@ class RequirementSection extends React.Component {
 
 class Project extends React.Component {
   render() {
-    return <div>{this.props.name}</div>;
+    if (this.props.deps.all.has(this.props.project)) {
+      return <div className='green'>{this.props.name}</div>;
+    }
+    else if (this.props.deps.some.has(this.props.project)) {
+      return <div className='yellow'>{this.props.name}</div>;
+    }
+    else if (this.props.deps.none.has(this.props.project)) {
+      return <div className='gray'>{this.props.name}</div>;
+    }
+    else {
+      return <div className='gray'>{this.props.name}</div>;
+    }
   }
 }
 
 class ProjectCategory extends React.Component {
   render() {
-    console.log(this.props.projects);
     const items = this.props.projects.map(project =>
-          <List.Item id={project.name}>
-            <Project name={project.name} />
+          <List.Item key={project.name}>
+            <Project
+              name={project.name}
+              project={project}
+              deps={this.props.deps}
+            />
           </List.Item>
       );
     return (
@@ -151,13 +167,13 @@ class ProjectCategory extends React.Component {
 
 class ProjectSection extends React.Component {
   render() {
-    console.log(this.props.projects);
     const projects = Immutable.Map(this.props.projects)
           .map((categoryProjects, categoryName) =>
-              <Grid.Column verticalAlign='middle' id={categoryName}>
+              <Grid.Column verticalAlign='middle' key={categoryName}>
                 <ProjectCategory
                   name={categoryName}
                   projects={categoryProjects}
+                  deps={this.props.deps}
                 />
               </Grid.Column>
           ).toList();
@@ -194,9 +210,12 @@ class Adapt extends React.Component {
   }
 
   render() {
-    const selectedTexts = Object.keys(this.state.selected).filter((key) => {
-      return this.state.selected[key];
-    });
+    const selectedTexts = Object.keys(this.state.selected).filter((key) =>
+      this.state.selected[key]
+    );
+    const transducer = new Transducer();
+    const userDeps = Immutable.Set(selectedTexts);
+    const depGroups = transducer.considerDependencies(userDeps);
     return (
       <div>
         <Container>
@@ -207,7 +226,11 @@ class Adapt extends React.Component {
           />
         {selectedTexts.join(', ')}
         <hr />
-        <ProjectSection projects={this.props.data.projects} />
+        <ProjectSection
+          projects={this.props.data.projects}
+          deps={depGroups}
+          selected={this.state.selected}
+        />
         </Container>
       </div>
     );
