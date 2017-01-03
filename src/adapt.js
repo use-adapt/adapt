@@ -33,7 +33,7 @@ class RequirementCategory extends React.Component {
     return (
       <Item>
         <Item.Content>
-        <h3>{this.props.name}</h3>
+        <Header textAlign="centered">{this.props.name}</Header>
         <List>
         {elements}
         </List>
@@ -60,15 +60,31 @@ class RequirementSection extends React.Component {
       )
     });
     return (
-      <Segment>
+      <div>
         <Header as="h2" textAlign="center">
           Requirements
         </Header>
-        <Grid columns='equal' centered stackable stretched doubling verticalAlign='middle'>
+      <Segment color="teal">
+        <Grid padded='vertically' divided columns='equal' stackable stretched doubling verticalAlign='middle'>
           {children}
         </Grid>
-        <Header as="h2" textAlign="center"></Header>
       </Segment>
+      </div>
+    );
+  }
+}
+
+class ProjectInfoCard extends React.Component {
+  render() {
+    return (
+      <Card>
+        <Card.Content>
+          <Card.Header>
+            {this.proj.selectedProject}
+          </Card.Header>
+          This is where the project info goes.
+        </Card.Content>
+      </Card>
     );
   }
 }
@@ -102,55 +118,35 @@ class ProjectCategory extends React.Component {
           </List.Item>
       );
     return (
-      <Card>
-        <Card.Content>
-          <Card.Header textAlign="center">{this.props.name}</Card.Header>
+      <Segment color="teal" compact>
+          <Header textAlign="center">{this.props.name}</Header>
           <List>{items}</List>
-        </Card.Content>
-      </Card>
+      </Segment>
     );
   }
 }
-
-class ProjectInfoCard extends React.Component {
-  render() {
-    return (
-      <Card>
-        <Card.Content>
-          <Card.Header>
-            This is where the project header goes.
-          </Card.Header>
-          This is where the project info goes.
-        </Card.Content>
-      </Card>
-    );
-  }
-}
-
 
 class ProjectSection extends React.Component {
   render() {
     const projects = Immutable.Map(this.props.projects)
           .map((categoryProjects, categoryName) =>
-              <Grid.Column verticalAlign='middle' key={categoryName}>
                 <ProjectCategory
                   name={categoryName}
                   projects={categoryProjects}
                   deps={this.props.deps}
                 />
-              </Grid.Column>
           ).toList();
     return (
-    <Grid columns={2} divided>
+    <Grid verticalAlign='middle' divided stackable centered columns={2}>
+      <Header as="h2">Open-Source Projects</Header>
       <Grid.Row>
-        <Grid.Column textAlign="center">
-          <Header as="h2" textAlign="center">Projects</Header>
-          <Card.Group>
-            {projects}
-          </Card.Group>
+        <Grid.Column>
+          <Segment.Group compact>
+           {projects}
+          </Segment.Group>
         </Grid.Column>
         <Grid.Column>
-          <ProjectInfoCard />
+          <ProjectInfoCard data={this.props.data} selectedProject={this.props.selectedProject}/>
         </Grid.Column>
       </Grid.Row>
     </Grid>
@@ -161,7 +157,7 @@ class ProjectSection extends React.Component {
 class UserSelection extends React.Component {
   render() {
     return (
-      <Segment size="massive">
+      <Segment color="teal" size="massive">
         Selected: {this.props.selectedTexts.join(', ')}
       </Segment>
   );
@@ -202,7 +198,7 @@ class Adapt extends React.Component {
     return (
       <div>
         <Container>
-          <Segment color="blue" tertiary inverted>
+          <Segment color="teal" tertiary inverted>
             <Header as="h1" icon textAlign='center'>
               <Icon name='checkmark box' circular />
               <Header.Content>
