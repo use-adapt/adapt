@@ -15,7 +15,7 @@ have it installed,
 
 ```
 $ cd adapt
-$ yarn install
+$ yarn add
 $ yarn start
 ```
 
