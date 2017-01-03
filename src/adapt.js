@@ -31,12 +31,12 @@ class RequirementCategory extends React.Component {
       </List.Item>
     ));
     return (
-      <div>
+      <Segment>
         <h3>{this.props.name}</h3>
         <List>
         {elements}
         </List>
-      </div>
+      </Segment>
 
     );
   }
@@ -49,22 +49,25 @@ class RequirementSection extends React.Component {
       return (
         <div key={name}>
           <Grid.Column verticalAlign='middle' key={this.props.name}>
-          <Segment>
           <RequirementCategory
             name={name}
             reqs={reqs}
             selectStatus={this.props.selectStatus}
             onButtonClick={this.props.onButtonClick}
             />
-          </Segment>
           </Grid.Column>
         </div>
       )
     });
     return (
-      <Grid columns='equal' centered stackable stretched doubling verticalAlign='middle'>
-        {children}
-      </Grid>
+      <Segment>
+        <Header as="h2" textAlign="center">
+          Requirements
+        </Header>
+        <Grid columns='equal' centered stackable stretched doubling verticalAlign='middle'>
+          {children}
+        </Grid>
+      </Segment>
     );
   }
 }
@@ -119,10 +122,23 @@ class ProjectSection extends React.Component {
               </Grid.Column>
           ).toList();
     return (
+    <Segment>
+      <Header as="h2" textAlign="center">Projects</Header>
       <Grid columns='equal' centered stackable stretched doubling verticalAlign='middle'>
         {projects}
       </Grid>
+    </Segment>
     );
+  }
+}
+
+class UserSelection extends React.Component {
+  render() {
+    return (
+      <Segment size="massive">
+        Selected: {this.props.selectedTexts.join(', ')}
+      </Segment>
+  );
   }
 }
 
@@ -160,34 +176,28 @@ class Adapt extends React.Component {
     return (
       <div>
         <Container>
-        <Header as="h1" icon textAlign='center'>
-          <Icon name='checkmark box' circular />
-          <Header.Content>
-            Adapt
-          </Header.Content>
-          <Header.Subheader>
-            A planning tool for using diabetes-related open source projects.
-          </Header.Subheader>
-        </Header>
-        </Container>
-        <Divider />
-        <Container>
+          <Segment color="violet" tertiary inverted>
+            <Header as="h1" icon textAlign='center'>
+              <Icon name='checkmark box' circular />
+              <Header.Content>
+                Adapt
+              </Header.Content>
+              <Header.Subheader>
+                A planning tool for using diabetes-related open source projects.
+              </Header.Subheader>
+            </Header>
+          </Segment>
+          <ProjectSection
+              projects={this.props.data.projects}
+              deps={depGroups}
+              selected={this.state.selected}
+              />
+          <UserSelection selectedTexts={selectedTexts}></UserSelection>
           <RequirementSection
-            requirements={this.props.data.requirements}
-            selectStatus={this.state.selected}
-            onButtonClick={this.onButtonClick}
-            />
-        </Container>
-        <Divider />
-        <Container>
-
-        {selectedTexts.join(', ')}
-
-        <ProjectSection
-          projects={this.props.data.projects}
-          deps={depGroups}
-          selected={this.state.selected}
-        />
+              requirements={this.props.data.requirements}
+              selectStatus={this.state.selected}
+              onButtonClick={this.onButtonClick}
+              />
         </Container>
       </div>
     );
