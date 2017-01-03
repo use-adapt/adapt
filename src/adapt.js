@@ -1,60 +1,9 @@
 import React from 'react';
-import { Container, Segment, Grid, Checkbox, List} from 'semantic-ui-react'
+import { Header, Icon, Divider, Container, Segment, Grid, Checkbox, List} from 'semantic-ui-react'
 import Immutable from 'immutable';
 
 import Transducer from './transducer.js';
 
-/*class Project extends React.Component {
-  render() {
-    return (
-      <Button>
-        foobar
-      </Button>
-    );
-  }
-}
-
-class ProjectCategory extends React.Component {
-  render() {
-    var elements = [];
-    var name = Object.keys(this.props.category)[0];
-    this.props.category[name].forEach((proj) => {
-      elements.push(<Project project={proj} />)
-    });
-    return (
-      <Table.Row textAlign='center' >
-        <Table.Cell>{elements}</Table.Cell>
-      </Table.Row>
-    );
-  }
-}
-
-class ProjectSection extends React.Component {
-  render() {
-    var categories = [];
-    var category_names = Object.keys(this.props.projects);
-    this.props.projects.forEach((proj_category) => {
-      categories.push(
-        <Table.Row textAlign='center'>
-          <Table.Cell>{Object.keys(proj_category)[0]}</Table.Cell>
-        </Table.Row>
-      );
-      categories.push(
-        <ProjectCategory category={proj_category} />
-      );
-    });
-    return (
-      <div>
-        <Header>Projects</Header>
-        <Table compact celled>
-          <Table.Body>
-            {categories}
-          </Table.Body>
-        </Table>
-      </div>
-    );
-  }
-}*/
 
 class Requirement extends React.Component {
   render() {
@@ -211,13 +160,29 @@ class Adapt extends React.Component {
     return (
       <div>
         <Container>
-        <RequirementSection
-          requirements={this.props.data.requirements}
-          selectStatus={this.state.selected}
-          onButtonClick={this.onButtonClick}
-          />
+        <Header as="h1" icon textAlign='center'>
+          <Icon name='checkmark box' circular />
+          <Header.Content>
+            Adapt
+          </Header.Content>
+          <Header.Subheader>
+            A planning tool for using diabetes-related open source projects.
+          </Header.Subheader>
+        </Header>
+        </Container>
+        <Divider />
+        <Container>
+          <RequirementSection
+            requirements={this.props.data.requirements}
+            selectStatus={this.state.selected}
+            onButtonClick={this.onButtonClick}
+            />
+        </Container>
+        <Divider />
+        <Container>
+
         {selectedTexts.join(', ')}
-        <hr />
+
         <ProjectSection
           projects={this.props.data.projects}
           deps={depGroups}
