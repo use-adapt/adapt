@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Item, Button, Header, Icon, Divider, Container, Segment, Grid, Checkbox, List} from 'semantic-ui-react'
+import { Card, Item, Button, Header, Icon, Container, Segment, Grid, Checkbox, List} from 'semantic-ui-react'
 import Immutable from 'immutable';
 
 import Transducer from './transducer.js';
@@ -33,9 +33,9 @@ class RequirementCategory extends React.Component {
     return (
       <Item>
         <Item.Content>
-        <Header textAlign="centered">{this.props.name}</Header>
+        <Header textAlign="center">{this.props.name}</Header>
         <List>
-        {elements}
+          {elements}
         </List>
         </Item.Content>
       </Item>
@@ -80,7 +80,7 @@ class ProjectInfoCard extends React.Component {
       <Card>
         <Card.Content>
           <Card.Header>
-            {this.proj.selectedProject}
+            {this.props.selectedProject}
           </Card.Header>
           This is where the project info goes.
         </Card.Content>
@@ -98,10 +98,10 @@ class Project extends React.Component {
       return <Button size="small" color='yellow'>{this.props.name}</Button>;
     }
     else if (this.props.deps.none.has(this.props.project)) {
-      return <Button size="small" color='gray'>{this.props.name}</Button>;
+      return <Button size="small" color='grey'>{this.props.name}</Button>;
     }
     else {
-      return <Button size="small" color='gray'>{this.props.name}</Button>;
+      return <Button size="small" color='grey'>{this.props.name}</Button>;
     }
   }
 }
@@ -132,6 +132,7 @@ class ProjectSection extends React.Component {
           .map((categoryProjects, categoryName) =>
                 <ProjectCategory
                   name={categoryName}
+                  key={categoryName}
                   projects={categoryProjects}
                   deps={this.props.deps}
                 />
