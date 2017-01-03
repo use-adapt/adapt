@@ -1,5 +1,5 @@
 import React from 'react';
-import { Header, Icon, Divider, Container, Segment, Grid, Checkbox, List} from 'semantic-ui-react'
+import { Card, Item, Button, Header, Icon, Divider, Container, Segment, Grid, Checkbox, List} from 'semantic-ui-react'
 import Immutable from 'immutable';
 
 import Transducer from './transducer.js';
@@ -31,12 +31,14 @@ class RequirementCategory extends React.Component {
       </List.Item>
     ));
     return (
-      <Segment>
+      <Item>
+        <Item.Content>
         <h3>{this.props.name}</h3>
         <List>
         {elements}
         </List>
-      </Segment>
+        </Item.Content>
+      </Item>
 
     );
   }
@@ -48,14 +50,12 @@ class RequirementSection extends React.Component {
       const reqs = this.props.requirements[name];
       return (
         <div key={name}>
-          <Grid.Column verticalAlign='middle' key={this.props.name}>
           <RequirementCategory
             name={name}
             reqs={reqs}
             selectStatus={this.props.selectStatus}
             onButtonClick={this.props.onButtonClick}
             />
-          </Grid.Column>
         </div>
       )
     });
@@ -67,6 +67,7 @@ class RequirementSection extends React.Component {
         <Grid columns='equal' centered stackable stretched doubling verticalAlign='middle'>
           {children}
         </Grid>
+        <Header as="h2" textAlign="center"></Header>
       </Segment>
     );
   }
@@ -75,16 +76,16 @@ class RequirementSection extends React.Component {
 class Project extends React.Component {
   render() {
     if (this.props.deps.all.has(this.props.project)) {
-      return <div className='green'>{this.props.name}</div>;
+      return <Button size="small" color='green'>{this.props.name}</Button>;
     }
     else if (this.props.deps.some.has(this.props.project)) {
-      return <div className='yellow'>{this.props.name}</div>;
+      return <Button size="small" color='yellow'>{this.props.name}</Button>;
     }
     else if (this.props.deps.none.has(this.props.project)) {
-      return <div className='gray'>{this.props.name}</div>;
+      return <Button size="small" color='gray'>{this.props.name}</Button>;
     }
     else {
-      return <div className='gray'>{this.props.name}</div>;
+      return <Button size="small" color='gray'>{this.props.name}</Button>;
     }
   }
 }
@@ -101,13 +102,31 @@ class ProjectCategory extends React.Component {
           </List.Item>
       );
     return (
-      <Segment>
-        <h3>{this.props.name}</h3>
-        <List>{items}</List>
-      </Segment>
+      <Card>
+        <Card.Content>
+          <Card.Header textAlign="center">{this.props.name}</Card.Header>
+          <List>{items}</List>
+        </Card.Content>
+      </Card>
     );
   }
 }
+
+class ProjectInfoCard extends React.Component {
+  render() {
+    return (
+      <Card>
+        <Card.Content>
+          <Card.Header>
+            This is where the project header goes.
+          </Card.Header>
+          This is where the project info goes.
+        </Card.Content>
+      </Card>
+    );
+  }
+}
+
 
 class ProjectSection extends React.Component {
   render() {
@@ -122,12 +141,19 @@ class ProjectSection extends React.Component {
               </Grid.Column>
           ).toList();
     return (
-    <Segment>
-      <Header as="h2" textAlign="center">Projects</Header>
-      <Grid columns='equal' centered stackable stretched doubling verticalAlign='middle'>
-        {projects}
-      </Grid>
-    </Segment>
+    <Grid columns={2} divided>
+      <Grid.Row>
+        <Grid.Column textAlign="center">
+          <Header as="h2" textAlign="center">Projects</Header>
+          <Card.Group>
+            {projects}
+          </Card.Group>
+        </Grid.Column>
+        <Grid.Column>
+          <ProjectInfoCard />
+        </Grid.Column>
+      </Grid.Row>
+    </Grid>
     );
   }
 }
@@ -176,7 +202,7 @@ class Adapt extends React.Component {
     return (
       <div>
         <Container>
-          <Segment color="violet" tertiary inverted>
+          <Segment color="blue" tertiary inverted>
             <Header as="h1" icon textAlign='center'>
               <Icon name='checkmark box' circular />
               <Header.Content>
@@ -187,17 +213,18 @@ class Adapt extends React.Component {
               </Header.Subheader>
             </Header>
           </Segment>
-          <ProjectSection
-              projects={this.props.data.projects}
-              deps={depGroups}
-              selected={this.state.selected}
-              />
-          <UserSelection selectedTexts={selectedTexts}></UserSelection>
           <RequirementSection
               requirements={this.props.data.requirements}
               selectStatus={this.state.selected}
               onButtonClick={this.onButtonClick}
               />
+          <UserSelection selectedTexts={selectedTexts}></UserSelection>
+          <ProjectSection
+                projects={this.props.data.projects}
+                deps={depGroups}
+                selected={this.state.selected}
+              />
+          <Header></Header>
         </Container>
       </div>
     );
