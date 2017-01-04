@@ -1,11 +1,10 @@
 import React from 'react';
-import { Card, Item, Button, Header, Icon, Container, Segment, Grid, Checkbox, List} from 'semantic-ui-react'
+import { Label, Item, Button, Header, Icon, Container, Segment, Grid, Checkbox, List} from 'semantic-ui-react'
 import Immutable from 'immutable';
 
 import Transducer from './transducer.js';
 
 var _ = require('lodash');
-
 
 class Requirement extends React.Component {
   render() {
@@ -76,21 +75,36 @@ class RequirementSection extends React.Component {
   }
 }
 
-
-class ConfigurationsInfo extends React.Component {
+class Configuration extends React.Component {
   render() {
-    var value = this.props.value;
+    var configuration = this.props.configuration.join(' + ')
     return (
-      <div>
-        <Icon name='sliders' />
-        <Header>Configurations</Header>
-        {value}
-      </div>
+      <List.Item key={configuration}>
+        {configuration}
+      </List.Item>
     );
   }
 }
 
-
+class ConfigurationsSection extends React.Component {
+  render() {
+    var configurations = this.props.configurations
+      .map(configuration =>
+                <Configuration
+                  configuration={configuration}
+                />
+            );
+    return (
+      <div>
+        <Icon name='sliders' />
+        <Header>Configurations</Header>
+        <List celled>
+          {configurations}
+        </List>
+      </div>
+    );
+  }
+}
 
 class ProjectCardSection extends React.Component {
   render() {
@@ -121,7 +135,7 @@ class ProjectCardSection extends React.Component {
       value = <a href={value}>{value}</a>;
     }
     if (this.props.attribute === "configurations"){
-      <ConfigurationsInfo configurations={value}/>
+      return <ConfigurationsSection configurations={value}/>
     }
     return (
       <div>
@@ -154,7 +168,7 @@ class ProjectCard extends React.Component {
     }
     return (
       <Segment color="teal">
-          <Header>
+          <Header as="h2">
             {this.props.selectedProject.name}
           </Header>
           <List celled>
