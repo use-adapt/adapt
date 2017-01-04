@@ -4,6 +4,8 @@ import Immutable from 'immutable';
 
 import Transducer from './transducer.js';
 
+var _ = require('lodash');
+
 
 class Requirement extends React.Component {
   render() {
@@ -74,17 +76,46 @@ class RequirementSection extends React.Component {
   }
 }
 
-class ProjectInfoCard extends React.Component {
+class ProjectCardSection extends React.Component {
   render() {
+
     return (
-      <Card>
-        <Card.Content>
-          <Card.Header>
+      <Grid.Row>
+        <Header>{this.props.attribute}</Header>
+        {this.props.value}
+      </Grid.Row>
+    );
+  }
+}
+
+
+class ProjectCard extends React.Component {
+  render() {
+    var project_info = "";
+    if (_.isEmpty(this.props.selectedProject)){
+      project_info = "NO PROJECT SELECTED";
+    }
+    else {
+      project_info = Object.keys(this.props.selectedProject).map((key) => {
+        return (
+          <div key={key}>
+            <Grid>
+            <ProjectCardSection
+              attribute={key}
+              value={this.props.selectedProject[key]}
+              />
+          </Grid>
+          </div>
+        )
+      });
+    }
+    return (
+      <Segment>
+          <Header>
             {this.props.selectedProject.name}
-          </Card.Header>
-          This is where the project info goes.
-        </Card.Content>
-      </Card>
+          </Header>
+          {project_info}
+      </Segment>
     );
   }
 }
@@ -102,7 +133,7 @@ class Project extends React.Component {
       color = 'grey';
     }
     return (
-      <Button name={this.props.name} data-project={this.props.project} onClick={this.props.onProjectClick} size='small' color={color}>
+      <Button name={this.props.name} onClick={this.props.onProjectClick} size='small' color={color}>
         {this.props.name}
       </Button>
     );
@@ -152,7 +183,7 @@ class ProjectSection extends React.Component {
           </Segment.Group>
         </Grid.Column>
         <Grid.Column>
-          <ProjectInfoCard selectedProject={this.props.selectedProject}/>
+          <ProjectCard selectedProject={this.props.selectedProject}/>
         </Grid.Column>
       </Grid.Row>
     </Grid>
