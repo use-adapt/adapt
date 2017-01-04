@@ -80,7 +80,7 @@ class ProjectInfoCard extends React.Component {
       <Card>
         <Card.Content>
           <Card.Header>
-            {this.props.selectedProject}
+            {this.props.selectedProject.name}
           </Card.Header>
           This is where the project info goes.
         </Card.Content>
@@ -92,16 +92,16 @@ class ProjectInfoCard extends React.Component {
 class Project extends React.Component {
   render() {
     if (this.props.deps.all.has(this.props.project)) {
-      return <Button size="small" color='green'>{this.props.name}</Button>;
+      return <Button data-project={this.props.project} onClick={this.props.onProjectClick} size="small" color='green'>{this.props.name}</Button>;
     }
     else if (this.props.deps.some.has(this.props.project)) {
-      return <Button size="small" color='yellow'>{this.props.name}</Button>;
+      return <Button data-project={this.props.project} onClick={this.props.onProjectClick} size="small" color='yellow'>{this.props.name}</Button>;
     }
     else if (this.props.deps.none.has(this.props.project)) {
-      return <Button size="small" color='grey'>{this.props.name}</Button>;
+      return <Button data-project={this.props.project} onClick={this.props.onProjectClick} size="small" color='grey'>{this.props.name}</Button>;
     }
     else {
-      return <Button size="small" color='grey'>{this.props.name}</Button>;
+      return <Button data-project={this.props.project} onClick={this.props.onProjectClick} size="small" color='grey'>{this.props.name}</Button>;
     }
   }
 }
@@ -114,6 +114,7 @@ class ProjectCategory extends React.Component {
               name={project.name}
               project={project}
               deps={this.props.deps}
+              onProjectClick={this.props.onProjectClick}
             />
           </List.Item>
       );
@@ -135,6 +136,7 @@ class ProjectSection extends React.Component {
                   key={categoryName}
                   projects={categoryProjects}
                   deps={this.props.deps}
+                  onProjectClick={this.props.onProjectClick}
                 />
           ).toList();
     return (
@@ -147,7 +149,7 @@ class ProjectSection extends React.Component {
           </Segment.Group>
         </Grid.Column>
         <Grid.Column>
-          <ProjectInfoCard data={this.props.data} selectedProject={this.props.selectedProject}/>
+          <ProjectInfoCard selectedProject={this.props.selectedProject}/>
         </Grid.Column>
       </Grid.Row>
     </Grid>
@@ -169,13 +171,14 @@ class Adapt extends React.Component {
   constructor(props) {
     super(props);
     const selected = {};
+    const project = {};
     Object.keys(props.data.requirements).forEach((name) => {
       props.data.requirements[name].forEach((item) => {
         selected[item] = false;
       });
     });
 
-    this.state = { selected };
+    this.state = { selected, selectedProject: project };
   }
 
   onButtonClick = (e) => {
@@ -186,6 +189,13 @@ class Adapt extends React.Component {
         ...this.state.selected,
         [name]: !this.state.selected[name],
       },
+    });
+  }
+
+  onProjectClick = (e) => {
+    var project = e.target.getAttribute('data-project');
+    this.setState({
+      selectedProject: project
     });
   }
 
@@ -220,6 +230,8 @@ class Adapt extends React.Component {
                 projects={this.props.data.projects}
                 deps={depGroups}
                 selected={this.state.selected}
+                selectedProject={this.state.selectedProject}
+                onProjectClick={this.onProjectClick}
               />
           <Header></Header>
         </Container>
