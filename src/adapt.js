@@ -1,5 +1,5 @@
 import React from 'react';
-import { Label, Item, Button, Header, Icon, Container, Segment, Grid, Checkbox, List} from 'semantic-ui-react'
+import { Item, Button, Header, Icon, Container, Segment, Grid, Checkbox, List} from 'semantic-ui-react'
 import Immutable from 'immutable';
 
 import Transducer from './transducer.js';
@@ -77,10 +77,16 @@ class RequirementSection extends React.Component {
 
 class Configuration extends React.Component {
   render() {
-    var configuration = this.props.configuration.join(' + ')
+    var configuration = Immutable.Set(this.props.configuration);
+    var selected = Immutable.Set(this.props.selectedTexts);
+    var configuration_have = selected.intersect(configuration);
+    var configuration_need = configuration.subtract(configuration_have);
     return (
       <List.Item key={configuration}>
-        {configuration}
+        <span className='green'>
+          {configuration_have.join(' + ')}
+        </span>
+          | {configuration_need.join(' + ')}
       </List.Item>
     );
   }
@@ -92,6 +98,7 @@ class ConfigurationsSection extends React.Component {
       .map(configuration =>
                 <Configuration
                   configuration={configuration}
+                  selectedTexts={this.props.selectedTexts}
                 />
             );
     return (
@@ -135,7 +142,10 @@ class ProjectCardSection extends React.Component {
       value = <a href={value}>{value}</a>;
     }
     if (this.props.attribute === "configurations"){
-      return <ConfigurationsSection configurations={value}/>
+      return <ConfigurationsSection
+                configurations={value}
+                selectedTexts={this.props.selectedTexts}
+                />
     }
     return (
       <div>
@@ -161,6 +171,7 @@ class ProjectCard extends React.Component {
             <ProjectCardSection
               attribute={key}
               value={this.props.selectedProject[key]}
+              selectedTexts={this.props.selectedTexts}
               />
             </List.Item>
         )
@@ -242,7 +253,10 @@ class ProjectSection extends React.Component {
           </Segment.Group>
         </Grid.Column>
         <Grid.Column>
-          <ProjectCard selectedProject={this.props.selectedProject}/>
+          <ProjectCard
+            selectedTexts={this.props.selectedTexts}
+            selectedProject={this.props.selectedProject}
+            />
         </Grid.Column>
       </Grid.Row>
     </Grid>
@@ -326,6 +340,7 @@ class Adapt extends React.Component {
                 deps={depGroups}
                 selected={this.state.selected}
                 selectedProject={this.state.selectedProject}
+                selectedTexts={selectedTexts}
                 onProjectClick={this.onProjectClick}
               />
           <Header></Header>
