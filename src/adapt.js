@@ -76,14 +76,59 @@ class RequirementSection extends React.Component {
   }
 }
 
+
+class ConfigurationsInfo extends React.Component {
+  render() {
+    var value = this.props.value;
+    return (
+      <div>
+        <Icon name='sliders' />
+        <Header>Configurations</Header>
+        {value}
+      </div>
+    );
+  }
+}
+
+
+
 class ProjectCardSection extends React.Component {
   render() {
+    var icon = null;
+    var title = this.props.attribute;
+    var value = this.props.value;
 
+    if (this.props.attribute === "name"){
+      return null;
+    }
+    if (this.props.attribute === "github"){
+      icon = <Icon name='github' />
+      title = "Github";
+      value = <a href={value}>Link</a>;
+    }
+    if (this.props.attribute === "pebble_store"){
+      icon = <Icon name='cart' />
+      title = "Pebble Store";
+      value = <a href={value}>Link</a>;
+    }
+    if (this.props.attribute === "category"){
+      icon = <Icon name='zip' />
+      title = "Category";
+    }
+    if (this.props.attribute === "website"){
+      icon = <Icon name='zip' />
+      title = "Website";
+      value = <a href={value}>{value}</a>;
+    }
+    if (this.props.attribute === "configurations"){
+      <ConfigurationsInfo configurations={value}/>
+    }
     return (
-      <Grid.Row>
-        <Header>{this.props.attribute}</Header>
-        {this.props.value}
-      </Grid.Row>
+      <div>
+        {icon}
+        <Header>{title}</Header>
+        {value}
+      </div>
     );
   }
 }
@@ -98,23 +143,23 @@ class ProjectCard extends React.Component {
     else {
       project_info = Object.keys(this.props.selectedProject).map((key) => {
         return (
-          <div key={key}>
-            <Grid>
+            <List.Item>
             <ProjectCardSection
               attribute={key}
               value={this.props.selectedProject[key]}
               />
-          </Grid>
-          </div>
+            </List.Item>
         )
       });
     }
     return (
-      <Segment>
+      <Segment color="teal">
           <Header>
             {this.props.selectedProject.name}
           </Header>
-          {project_info}
+          <List celled>
+            {project_info}
+          </List>
       </Segment>
     );
   }
