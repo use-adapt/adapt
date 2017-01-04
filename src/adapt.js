@@ -91,18 +91,21 @@ class ProjectInfoCard extends React.Component {
 
 class Project extends React.Component {
   render() {
+    let color = 'grey';
     if (this.props.deps.all.has(this.props.project)) {
-      return <Button data-project={this.props.project} onClick={this.props.onProjectClick} size="small" color='green'>{this.props.name}</Button>;
+      color = 'green';
     }
     else if (this.props.deps.some.has(this.props.project)) {
-      return <Button data-project={this.props.project} onClick={this.props.onProjectClick} size="small" color='yellow'>{this.props.name}</Button>;
+      color = 'yellow';
     }
     else if (this.props.deps.none.has(this.props.project)) {
-      return <Button data-project={this.props.project} onClick={this.props.onProjectClick} size="small" color='grey'>{this.props.name}</Button>;
+      color = 'grey';
     }
-    else {
-      return <Button data-project={this.props.project} onClick={this.props.onProjectClick} size="small" color='grey'>{this.props.name}</Button>;
-    }
+    return (
+      <Button name={this.props.name} data-project={this.props.project} onClick={this.props.onProjectClick} size='small' color={color}>
+        {this.props.name}
+      </Button>
+    );
   }
 }
 
@@ -193,9 +196,11 @@ class Adapt extends React.Component {
   }
 
   onProjectClick = (e) => {
-    var project = e.target.getAttribute('data-project');
+    const name = e.target.getAttribute('name');
+    const projects = Transducer.flattenProjects();
+    const project = projects.filter(p => p.name === name).first();
     this.setState({
-      selectedProject: project
+      selectedProject: project,
     });
   }
 
