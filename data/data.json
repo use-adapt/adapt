@@ -1,255 +1,241 @@
 {
-  "projects": [
-    {
-      "cloud services": [
-        {
-          "name": "Nightscout",
-          "github": "https://github.com/nightscout/cgm-remote-monitor",
-          "website": "http://www.nightscout.info/",
-          "category": "cloud services",
-          "configurations": [
-            ["dexcom g5", "ios"],
-            ["dexcom g4 with share", "ios"],
-            ["dexcom g4 with share", "android"],
-            ["dexcom g4", "android"],
-            ["medtronic 530g", "android"],
-            ["medtronic minimed connect", "ios"],
-            ["medtronic 640g", "android"],
-            ["freestyle libre", "android"]
-          ]
-        },
-        {
-          "name": "Tidepool Uploader",
-          "website": "http://tidepool.org/products/tidepool-uploader/",
-          "github": "https://github.com/tidepool-org/chrome-uploader",
-          "category": "cloud services",
-          "configurations": [
-            ["dexcom g4", "mac", "micro-USB cable"],
-            ["dexcom g4", "windows", "micro-USB cable"],
-            ["dexcom g4 with share", "mac", "micro-USB cable"],
-            ["dexcom g4 with share", "windows", "micro-USB cable"],
-            ["dexcom g5", "mac", "micro-USB cable"],
-            ["dexcom g5", "windows", "micro-USB cable"],
-            ["omnipod", "mac", "mini-USB cable"],
-            ["omnipod", "windows", "mini-USB cable"],
-            ["t:slim", "mac", "micro-USB cable"],
-            ["t:slim", "windows", "micro-USB cable"],
-            ["t:flex", "mac", "micro-USB cable"],
-            ["t:flex", "windows", "micro-USB cable"],
-            ["t:slim G4", "mac", "micro-USB cable"],
-            ["t:slim G4", "windows", "micro-USB cable"],
-            ["t:slim X2", "mac", "micro-USB cable"],
-            ["t:slim X2", "windows", "micro-USB cable"],
-            ["medtronic 723/523", "mac", "carelink", "carelink USB stick"],
-            ["medtronic 723/523", "windows", "carelink", "carelink USB stick"],
-            ["medtronic 530g", "mac", "carelink", "carelink USB stick"],
-            ["medtronic 530g", "windows", "carelink", "carelink USB stick"],
-            ["contour next", "mac"],
-            ["contour next", "windows"],
-            ["contour next link", "mac"],
-            ["contour next link", "windows"],
-            ["contour next USB", "mac"],
-            ["contour next USB", "windows"],
-            ["contour USB", "mac"],
-            ["contour USB", "windows"],
-            ["precision xtra", "windows"],
-            ["freedom lite", "windows"],
-            ["verioiq", "mac"],
-            ["verioiq", "windows"]
-          ]
-        }
-      ]
-    },
-    {
-      "watchfaces": [
-        {
-          "name": "CGM in the Sky",
-          "github": null,
-          "pebble_store": "https://apps.getpebble.com/en_US/application/56539401713e32fa020000a6?section=watchfaces",
-          "category": "watchfaces",
-          "configurations": [
-            ["nightscout", "pebble"]
-          ]
-        },
-        {
-          "name": "Simple CGM Spark",
-          "github": null,
-          "pebble_store": "https://apps.getpebble.com/en_US/application/56534d58d2d67de36d00005f?query=simple%2520cgm%2520spark&section=watchfaces",
-          "category": "watchfaces",
-          "configurations": [
-            ["nightscout", "pebble"]
-          ]
-        },
-        {
-          "name": "Simple CGM",
-          "github": null,
-          "pebble_store": "https://apps.getpebble.com/en_US/application/557c3091d269ce13b300001a?query=simple%2520cgm&section=watchfaces",
-          "category": "watchfaces",
-          "configurations": [
-            ["nightscout", "pebble"]
-          ]
-        },
-        {
-          "name": "Nightscout Duo",
-          "github": null,
-          "pebble_store": "https://apps.getpebble.com/en_US/application/5717e72e02a44b1cf900000e?query=duo&section=watchfaces",
-          "category": "watchfaces",
-          "configurations": [
-            ["nightscout", "pebble"]
-          ]
-        },
-        {
-          "name": "Urchin",
-          "github": "https://github.com/mddub/urchin-cgm",
-          "pebble_store": null,
-          "category": "watchfaces",
-          "configurations": [
-            ["nightscout", "pebble"]
-          ]
-        },
-        {
-          "name": "Simple CGM Time",
-          "github": null,
-          "pebble_store": "https://apps.getpebble.com/en_US/application/5788797769ee715dd7000262",
-          "category": "watchface",
-          "configurations": [
-            ["nightscout", "pebble"]
-          ]
-        },
-        {
-          "name": "Simple CGM Analog",
-          "pebble_store": "https://apps.getpebble.com/en_US/application/578c21b584accc314e0002bf",
-          "github": null,
-          "category": "watchface",
-          "configurations": [
-            ["nightscout", "pebble"]
-          ]
-        },
-        {
-          "name": "Nightscout for Pebble",
-          "pebble_store":"https://apps.getpebble.com/en_US/application/543bfbbcecc29baad0000007?section=watchfaces",
-          "github": null,
-          "category": "watchfaces",
-          "configurations": [
-            ["nightscout", "pebble classic"],
-            ["nightscout", "pebble steel"],
-            ["nightscout", "pebble time"],
-            ["nightscout", "pebble time steel"]
-          ]
-        },
-        {
-          "name": "CGM in the Cloud",
-          "pebble_store":"https://apps.getpebble.com/en_US/application/543bfff4ecc29b79790001de?query=CGM%2520in%2520the%2520Cloud&section=watchfaces",
-          "github": null,
-          "category": "watchfaces",
-          "configurations": [
-            ["nightscout", "pebble classic"],
-            ["nightscout", "pebble steel"],
-            ["nightscout", "pebble time"],
-            ["nightscout", "pebble time steel"]
-          ]
-        }
-      ]
-    },
-    {
-      "closed-loop systems": [
-        {
-          "name": "Loop",
-          "github": "https://github.com/loopkit/loop",
-          "website": null,
-          "configurations": [
-            ["dexcom g4", "medtronic 515/715", "iOS", "macOS", "RileyLink"],
-            ["dexcom g4", "medtronic 522/722", "iOS", "macOS", "RileyLink"],
-            ["dexcom g4", "medtronic 523/723 w/ <2.4 firmware", "iOS", "macOS", "RileyLink"],
-            ["dexcom g4", "medtronic 554/754 w/ <2.4 firmware", "iOS", "macOS", "RileyLink"],
-            ["dexcom g4 with share", "medtronic 515/715", "iOS", "macOS", "RileyLink"],
-            ["dexcom g4 with share", "medtronic 522/722", "iOS", "macOS", "RileyLink"],
-            ["dexcom g4 with share", "medtronic 523/723 w/ <2.4 firmware", "iOS", "macOS", "RileyLink"],
-            ["dexcom g4 with share", "medtronic 554/754 w/ <2.4 firmware", "iOS", "macOS", "RileyLink"],
-            ["dexcom g5", "medtronic 515/715", "iOS", "macOS", "RileyLink"],
-            ["dexcom g5", "medtronic 522/722", "iOS", "macOS", "RileyLink"],
-            ["dexcom g5", "medtronic 523/723 w/ <2.4 firmware", "iOS", "macOS", "RileyLink"],
-            ["dexcom g5", "medtronic 554/754 w/ <2.4 firmware", "iOS", "macOS", "RileyLink"]
+  "projects": {
+    "cloud services": [
+      {
+        "name": "Nightscout",
+        "github": "https://github.com/nightscout/cgm-remote-monitor",
+        "website": "http://www.nightscout.info/",
+        "category": "cloud services",
+        "configurations": [
+          ["dexcom g5", "ios"],
+          ["dexcom g4 with share", "ios"],
+          ["dexcom g4 with share", "android"],
+          ["dexcom g4", "android"],
+          ["medtronic 530g", "android"],
+          ["medtronic minimed connect", "ios"],
+          ["medtronic 640g", "android"],
+          ["freestyle libre", "android"]
+        ]
+      },
+      {
+        "name": "Tidepool Uploader",
+        "website": "http://tidepool.org/products/tidepool-uploader/",
+        "github": "https://github.com/tidepool-org/chrome-uploader",
+        "category": "cloud services",
+        "configurations": [
+          ["dexcom g4", "mac", "micro-USB cable"],
+          ["dexcom g4", "windows", "micro-USB cable"],
+          ["dexcom g4 with share", "mac", "micro-USB cable"],
+          ["dexcom g4 with share", "windows", "micro-USB cable"],
+          ["dexcom g5", "mac", "micro-USB cable"],
+          ["dexcom g5", "windows", "micro-USB cable"],
+          ["omnipod", "mac", "mini-USB cable"],
+          ["omnipod", "windows", "mini-USB cable"],
+          ["t:slim", "mac", "micro-USB cable"],
+          ["t:slim", "windows", "micro-USB cable"],
+          ["t:flex", "mac", "micro-USB cable"],
+          ["t:flex", "windows", "micro-USB cable"],
+          ["t:slim G4", "mac", "micro-USB cable"],
+          ["t:slim G4", "windows", "micro-USB cable"],
+          ["t:slim X2", "mac", "micro-USB cable"],
+          ["t:slim X2", "windows", "micro-USB cable"],
+          ["medtronic 723/523", "mac", "carelink", "carelink USB stick"],
+          ["medtronic 723/523", "windows", "carelink", "carelink USB stick"],
+          ["medtronic 530g", "mac", "carelink", "carelink USB stick"],
+          ["medtronic 530g", "windows", "carelink", "carelink USB stick"],
+          ["contour next", "mac"],
+          ["contour next", "windows"],
+          ["contour next link", "mac"],
+          ["contour next link", "windows"],
+          ["contour next USB", "mac"],
+          ["contour next USB", "windows"],
+          ["contour USB", "mac"],
+          ["contour USB", "windows"],
+          ["precision xtra", "windows"],
+          ["freedom lite", "windows"],
+          ["verioiq", "mac"],
+          ["verioiq", "windows"]
+        ]
+      }
+    ],
+    "watchfaces": [
+      {
+        "name": "CGM in the Sky",
+        "github": null,
+        "pebble_store": "https://apps.getpebble.com/en_US/application/56539401713e32fa020000a6?section=watchfaces",
+        "category": "watchfaces",
+        "configurations": [
+          ["nightscout", "pebble"]
+        ]
+      },
+      {
+        "name": "Simple CGM Spark",
+        "github": null,
+        "pebble_store": "https://apps.getpebble.com/en_US/application/56534d58d2d67de36d00005f?query=simple%2520cgm%2520spark&section=watchfaces",
+        "category": "watchfaces",
+        "configurations": [
+          ["nightscout", "pebble"]
+        ]
+      },
+      {
+        "name": "Simple CGM",
+        "github": null,
+        "pebble_store": "https://apps.getpebble.com/en_US/application/557c3091d269ce13b300001a?query=simple%2520cgm&section=watchfaces",
+        "category": "watchfaces",
+        "configurations": [
+          ["nightscout", "pebble"]
+        ]
+      },
+      {
+        "name": "Nightscout Duo",
+        "github": null,
+        "pebble_store": "https://apps.getpebble.com/en_US/application/5717e72e02a44b1cf900000e?query=duo&section=watchfaces",
+        "category": "watchfaces",
+        "configurations": [
+          ["nightscout", "pebble"]
+        ]
+      },
+      {
+        "name": "Urchin",
+        "github": "https://github.com/mddub/urchin-cgm",
+        "pebble_store": null,
+        "category": "watchfaces",
+        "configurations": [
+          ["nightscout", "pebble"]
+        ]
+      },
+      {
+        "name": "Simple CGM Time",
+        "github": null,
+        "pebble_store": "https://apps.getpebble.com/en_US/application/5788797769ee715dd7000262",
+        "category": "watchface",
+        "configurations": [
+          ["nightscout", "pebble"]
+        ]
+      },
+      {
+        "name": "Simple CGM Analog",
+        "pebble_store": "https://apps.getpebble.com/en_US/application/578c21b584accc314e0002bf",
+        "github": null,
+        "category": "watchface",
+        "configurations": [
+          ["nightscout", "pebble"]
+        ]
+      },
+      {
+        "name": "Nightscout for Pebble",
+        "pebble_store":"https://apps.getpebble.com/en_US/application/543bfbbcecc29baad0000007?section=watchfaces",
+        "github": null,
+        "category": "watchfaces",
+        "configurations": [
+          ["nightscout", "pebble classic"],
+          ["nightscout", "pebble steel"],
+          ["nightscout", "pebble time"],
+          ["nightscout", "pebble time steel"]
+        ]
+      },
+      {
+        "name": "CGM in the Cloud",
+        "pebble_store":"https://apps.getpebble.com/en_US/application/543bfff4ecc29b79790001de?query=CGM%2520in%2520the%2520Cloud&section=watchfaces",
+        "github": null,
+        "category": "watchfaces",
+        "configurations": [
+          ["nightscout", "pebble classic"],
+          ["nightscout", "pebble steel"],
+          ["nightscout", "pebble time"],
+          ["nightscout", "pebble time steel"]
+        ]
+      }
+    ],
+    "closed-loop systems": [
+      {
+        "name": "Loop",
+        "github": "https://github.com/loopkit/loop",
+        "website": null,
+        "configurations": [
+          ["dexcom g4", "medtronic 515/715", "iOS", "macOS", "RileyLink"],
+          ["dexcom g4", "medtronic 522/722", "iOS", "macOS", "RileyLink"],
+          ["dexcom g4", "medtronic 523/723 w/ <2.4 firmware", "iOS", "macOS", "RileyLink"],
+          ["dexcom g4", "medtronic 554/754 w/ <2.4 firmware", "iOS", "macOS", "RileyLink"],
+          ["dexcom g4 with share", "medtronic 515/715", "iOS", "macOS", "RileyLink"],
+          ["dexcom g4 with share", "medtronic 522/722", "iOS", "macOS", "RileyLink"],
+          ["dexcom g4 with share", "medtronic 523/723 w/ <2.4 firmware", "iOS", "macOS", "RileyLink"],
+          ["dexcom g4 with share", "medtronic 554/754 w/ <2.4 firmware", "iOS", "macOS", "RileyLink"],
+          ["dexcom g5", "medtronic 515/715", "iOS", "macOS", "RileyLink"],
+          ["dexcom g5", "medtronic 522/722", "iOS", "macOS", "RileyLink"],
+          ["dexcom g5", "medtronic 523/723 w/ <2.4 firmware", "iOS", "macOS", "RileyLink"],
+          ["dexcom g5", "medtronic 554/754 w/ <2.4 firmware", "iOS", "macOS", "RileyLink"]
 
-          ]
-        },
-        {
-          "name": "OpenAPS",
-          "github": "https://github.com/openaps/docs",
-          "website": "http://openaps.readthedocs.io/",
-          "configurations": [
-            ["dexcom g4", "raspberry pi 2 model b", "WiFi adapter", "CareLink USB stick", "micro SD card", "micro-USB cable", "2.1 amp power supply/battery"],
-            ["dexcom g4", "raspberry pi 2 model b", "WiFi adapter", "TI stick", "micro SD card", "micro-USB cable", "2.1 amp power supply/battery"],
-            ["dexcom g4", "raspberry pi 3 model b", "CareLink USB stick", "micro SD card", "micro-USB cable", "2.1 amp power supply/battery"],
-            ["dexcom g4", "raspberry pi 3 model b", "TI stick", "micro SD card", "micro-USB cable", "2.1 amp power supply/battery"],
+        ]
+      },
+      {
+        "name": "OpenAPS",
+        "github": "https://github.com/openaps/docs",
+        "website": "http://openaps.readthedocs.io/",
+        "configurations": [
+          ["dexcom g4", "raspberry pi 2 model b", "WiFi adapter", "CareLink USB stick", "micro SD card", "micro-USB cable", "2.1 amp power supply/battery"],
+          ["dexcom g4", "raspberry pi 2 model b", "WiFi adapter", "TI stick", "micro SD card", "micro-USB cable", "2.1 amp power supply/battery"],
+          ["dexcom g4", "raspberry pi 3 model b", "CareLink USB stick", "micro SD card", "micro-USB cable", "2.1 amp power supply/battery"],
+          ["dexcom g4", "raspberry pi 3 model b", "TI stick", "micro SD card", "micro-USB cable", "2.1 amp power supply/battery"],
 
-            ["dexcom g5", "raspberry pi 2 model b", "WiFi adapter", "CareLink USB stick", "micro SD card", "micro-USB cable", "2.1 amp power supply/battery"],
-            ["dexcom g5", "raspberry pi 2 model b", "WiFi adapter", "TI stick", "micro SD card", "micro-USB cable", "2.1 amp power supply/battery"],
-            ["dexcom g5", "raspberry pi 3 model b", "CareLink USB stick", "micro SD card", "micro-USB cable", "2.1 amp power supply/battery"],
-            ["dexcom g5", "raspberry pi 3 model b", "TI stick", "micro SD card", "micro-USB cable", "2.1 amp power supply/battery"],
+          ["dexcom g5", "raspberry pi 2 model b", "WiFi adapter", "CareLink USB stick", "micro SD card", "micro-USB cable", "2.1 amp power supply/battery"],
+          ["dexcom g5", "raspberry pi 2 model b", "WiFi adapter", "TI stick", "micro SD card", "micro-USB cable", "2.1 amp power supply/battery"],
+          ["dexcom g5", "raspberry pi 3 model b", "CareLink USB stick", "micro SD card", "micro-USB cable", "2.1 amp power supply/battery"],
+          ["dexcom g5", "raspberry pi 3 model b", "TI stick", "micro SD card", "micro-USB cable", "2.1 amp power supply/battery"],
 
-            ["dexcom g4 with share", "raspberry pi 2 model b", "WiFi adapter", "CareLink USB stick", "micro SD card", "micro-USB cable", "2.1 amp power supply/battery"],
-            ["dexcom g4 with share", "raspberry pi 2 model b", "WiFi adapter", "TI stick", "micro SD card", "micro-USB cable", "2.1 amp power supply/battery"],
-            ["dexcom g4 with share", "raspberry pi 3 model b", "CareLink USB stick", "micro SD card", "micro-USB cable", "2.1 amp power supply/battery"],
-            ["dexcom g4 with share", "raspberry pi 3 model b", "TI stick", "micro SD card", "micro-USB cable", "2.1 amp power supply/battery"],
+          ["dexcom g4 with share", "raspberry pi 2 model b", "WiFi adapter", "CareLink USB stick", "micro SD card", "micro-USB cable", "2.1 amp power supply/battery"],
+          ["dexcom g4 with share", "raspberry pi 2 model b", "WiFi adapter", "TI stick", "micro SD card", "micro-USB cable", "2.1 amp power supply/battery"],
+          ["dexcom g4 with share", "raspberry pi 3 model b", "CareLink USB stick", "micro SD card", "micro-USB cable", "2.1 amp power supply/battery"],
+          ["dexcom g4 with share", "raspberry pi 3 model b", "TI stick", "micro SD card", "micro-USB cable", "2.1 amp power supply/battery"],
 
-            ["dexcom g4", "intel edison", "lipo battery", "explorer board"],
-            ["dexcom g4", "intel edison", "lipo battery", "Intel base board", "TI USB stick"],
-            ["dexcom g4", "intel edison", "lipo battery", "Intel base board", "RileyLink"],
-            ["dexcom g4", "intel edison", "lipo battery", "Sparkfun base board", "TI USB stick"],
-            ["dexcom g4", "intel edison", "lipo battery", "Sparkfun base board", "RileyLink"],
+          ["dexcom g4", "intel edison", "lipo battery", "explorer board"],
+          ["dexcom g4", "intel edison", "lipo battery", "Intel base board", "TI USB stick"],
+          ["dexcom g4", "intel edison", "lipo battery", "Intel base board", "RileyLink"],
+          ["dexcom g4", "intel edison", "lipo battery", "Sparkfun base board", "TI USB stick"],
+          ["dexcom g4", "intel edison", "lipo battery", "Sparkfun base board", "RileyLink"],
 
-            ["dexcom g5", "intel edison", "lipo battery", "explorer board"],
-            ["dexcom g5", "intel edison", "lipo battery", "Intel base board", "TI USB stick"],
-            ["dexcom g5", "intel edison", "lipo battery", "Intel base board", "RileyLink"],
-            ["dexcom g5", "intel edison", "lipo battery", "Sparkfun base board", "TI USB stick"],
-            ["dexcom g5", "intel edison", "lipo battery", "Sparkfun base board", "RileyLink"],
+          ["dexcom g5", "intel edison", "lipo battery", "explorer board"],
+          ["dexcom g5", "intel edison", "lipo battery", "Intel base board", "TI USB stick"],
+          ["dexcom g5", "intel edison", "lipo battery", "Intel base board", "RileyLink"],
+          ["dexcom g5", "intel edison", "lipo battery", "Sparkfun base board", "TI USB stick"],
+          ["dexcom g5", "intel edison", "lipo battery", "Sparkfun base board", "RileyLink"],
 
-            ["dexcom g4 with share", "intel edison", "lipo battery", "explorer board"],
-            ["dexcom g4 with share", "intel edison", "lipo battery", "Intel base board", "TI USB stick"],
-            ["dexcom g4 with share", "intel edison", "lipo battery", "Intel base board", "RileyLink"],
-            ["dexcom g4 with share", "intel edison", "lipo battery", "Sparkfun base board", "TI USB stick"],
-            ["dexcom g4 with share", "intel edison", "lipo battery", "Sparkfun base board", "RileyLink"]
-          ]
-        }
-      ]
-    },
-    {
-      "watch apps": [
-      ]
-    },
-    {
-      "phone apps": [
-      ]
-    },
-    {
-      "experimental": [
-        {
-          "name": "OpenOmni",
-          "github": "https://github.com/openaps/openomni",
-          "website": "https://omniaps.slack.com/",
-          "category": "experimental",
-          "configurations": [
-            ["RFCat", "omnipod"],
-            ["TI USB stick", "cc-debugger", "omnipod"]
-          ]
-        }
-      ]
-    }
-  ],
+          ["dexcom g4 with share", "intel edison", "lipo battery", "explorer board"],
+          ["dexcom g4 with share", "intel edison", "lipo battery", "Intel base board", "TI USB stick"],
+          ["dexcom g4 with share", "intel edison", "lipo battery", "Intel base board", "RileyLink"],
+          ["dexcom g4 with share", "intel edison", "lipo battery", "Sparkfun base board", "TI USB stick"],
+          ["dexcom g4 with share", "intel edison", "lipo battery", "Sparkfun base board", "RileyLink"]
+        ]
+      }
+    ],
+    "watch apps": [
+    ],
+    "phone apps": [
+    ],
+    "experimental": [
+      {
+        "name": "OpenOmni",
+        "github": "https://github.com/openaps/openomni",
+        "website": "https://omniaps.slack.com/",
+        "category": "experimental",
+        "configurations": [
+          ["RFCat", "omnipod"],
+          ["TI USB stick", "cc-debugger", "omnipod"]
+        ]
+      }
+    ]
+  },
   "requirements": {
     "meters": ["verio iq", "contour next", "contour USB"],
     "cloud services": ["nightscout", "tidepool blip", "carelink"],
-    "computer": ["mac", "linux", "windows"],
+    "computer": ["macOS", "linux", "windows"],
     "phone": ["android", "iOS"],
     "cgm": ["dexcom g4", "dexcom g4 with share", "g5", "medtronic enlite", "medtronic revel"],
-    "pump": ["medtronic 512/712", "medtronic 515/715", "medtronic 522/722", "medtronic 723/523",
-     "omnipod", "t:slim", "animas ping", "animas vibe"],
+    "pump": ["medtronic 512/712", "medtronic 515/715", "medtronic 522/722", "medtronic 723/523", "omnipod", "t:slim", "animas ping", "animas vibe"],
     "smartwatches": ["pebble classic", "pebble time", "android wear (any)", "apple watch", "samsung gear"],
     "portable computers": ["raspberry pi 2", "raspberry pi 3", "intel edison"],
-    "tools/add-ons": ["explorer board", "intel base board", "carelink USB stick", "TI USB stick",
-       "cc-debugger", "WiFi adapter", "micro SD card", "2.1 amp power supply/battery"],
+    "tools/add-ons": ["explorer board", "intel base board", "carelink USB stick", "TI USB stick", "cc-debugger", "WiFi adapter", "micro SD card", "2.1 amp power supply/battery"],
     "bridges": ["xDrip", "RileyLink"],
     "cables": ["micro-USB cable", "mini-USB cable", "USB power supply"]
-    }
+  }
 }

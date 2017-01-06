@@ -1,69 +1,20 @@
 import React from 'react';
-import { Button, Header, Table } from 'semantic-ui-react'
+import { Header, Icon, Divider, Container, Segment, Grid, Checkbox, List} from 'semantic-ui-react'
+import Immutable from 'immutable';
 
-class Project extends React.Component {
-  render() {
-    return (
-      <Button>
-        foobar
-      </Button>
-    );
-  }
-}
+import Transducer from './transducer.js';
 
-class ProjectCategory extends React.Component {
-  render() {
-    var elements = [];
-    var name = Object.keys(this.props.category)[0];
-    this.props.category[name].forEach((proj) => {
-      elements.push(<Project project={proj} />)
-    });
-    return (
-      <Table.Row textAlign='center' >
-        <Table.Cell>{elements}</Table.Cell>
-      </Table.Row>
-    );
-  }
-}
-
-class ProjectSection extends React.Component {
-  render() {
-    var categories = [];
-    var category_names = Object.keys(this.props.projects);
-    this.props.projects.forEach((proj_category) => {
-      categories.push(
-        <Table.Row textAlign='center'>
-          <Table.Cell>{Object.keys(proj_category)[0]}</Table.Cell>
-        </Table.Row>
-      );
-      categories.push(
-        <ProjectCategory category={proj_category} />
-      );
-    });
-    return (
-      <div>
-        <Header>Projects</Header>
-        <Table compact celled>
-          <Table.Body>
-            {categories}
-          </Table.Body>
-        </Table>
-      </div>
-    );
-  }
-}
 
 class Requirement extends React.Component {
   render() {
     return (
-      <Button
+      <Checkbox
         key={this.props.name}
         name={this.props.name}
-        onClick={this.props.onButtonClick}
-        active={this.props.selectStatus[this.props.name]}
-        >
-        {this.props.name}
-      </Button>
+        label={<label name={this.props.name}>{this.props.name}</label>}
+        onChange={this.props.onButtonClick}
+        checked={this.props.selectStatus[this.props.name]}
+        />
     );
   }
 }
@@ -71,18 +22,22 @@ class Requirement extends React.Component {
 class RequirementCategory extends React.Component {
   render() {
     var elements = this.props.reqs.map((req) => (
-      <Requirement
-        key={req}
+      <List.Item key={req}>
+        <Requirement
         name={req}
         onButtonClick={this.props.onButtonClick}
         selectStatus={this.props.selectStatus}
         />
+      </List.Item>
     ));
     return (
-      <div key={name}>
-        <h3>{name}</h3>
+      <Segment>
+        <h3>{this.props.name}</h3>
+        <List>
         {elements}
-      </div>
+        </List>
+      </Segment>
+
     );
   }
 }
@@ -93,21 +48,97 @@ class RequirementSection extends React.Component {
       const reqs = this.props.requirements[name];
       return (
         <div key={name}>
+          <Grid.Column verticalAlign='middle' key={this.props.name}>
           <RequirementCategory
             name={name}
             reqs={reqs}
             selectStatus={this.props.selectStatus}
             onButtonClick={this.props.onButtonClick}
             />
+          </Grid.Column>
         </div>
       )
     });
-
     return (
-      <div>
-        {children}
-      </div>
+      <Segment>
+        <Header as="h2" textAlign="center">
+          Requirements
+        </Header>
+        <Grid columns='equal' centered stackable stretched doubling verticalAlign='middle'>
+          {children}
+        </Grid>
+      </Segment>
     );
+  }
+}
+
+class Project extends React.Component {
+  render() {
+    if (this.props.deps.all.has(this.props.project)) {
+      return <div className='green'>{this.props.name}</div>;
+    }
+    else if (this.props.deps.some.has(this.props.project)) {
+      return <div className='yellow'>{this.props.name}</div>;
+    }
+    else if (this.props.deps.none.has(this.props.project)) {
+      return <div className='gray'>{this.props.name}</div>;
+    }
+    else {
+      return <div className='gray'>{this.props.name}</div>;
+    }
+  }
+}
+
+class ProjectCategory extends React.Component {
+  render() {
+    const items = this.props.projects.map(project =>
+          <List.Item key={project.name}>
+            <Project
+              name={project.name}
+              project={project}
+              deps={this.props.deps}
+            />
+          </List.Item>
+      );
+    return (
+      <Segment>
+        <h3>{this.props.name}</h3>
+        <List>{items}</List>
+      </Segment>
+    );
+  }
+}
+
+class ProjectSection extends React.Component {
+  render() {
+    const projects = Immutable.Map(this.props.projects)
+          .map((categoryProjects, categoryName) =>
+              <Grid.Column verticalAlign='middle' key={categoryName}>
+                <ProjectCategory
+                  name={categoryName}
+                  projects={categoryProjects}
+                  deps={this.props.deps}
+                />
+              </Grid.Column>
+          ).toList();
+    return (
+    <Segment>
+      <Header as="h2" textAlign="center">Projects</Header>
+      <Grid columns='equal' centered stackable stretched doubling verticalAlign='middle'>
+        {projects}
+      </Grid>
+    </Segment>
+    );
+  }
+}
+
+class UserSelection extends React.Component {
+  render() {
+    return (
+      <Segment size="massive">
+        Selected: {this.props.selectedTexts.join(', ')}
+      </Segment>
+  );
   }
 }
 
@@ -125,7 +156,7 @@ class Adapt extends React.Component {
   }
 
   onButtonClick = (e) => {
-    const name = e.target.name;
+    const name = e.target.getAttribute('name');
 
     this.setState({
       selected: {
@@ -136,18 +167,38 @@ class Adapt extends React.Component {
   }
 
   render() {
-    const selectedTexts = Object.keys(this.state.selected).filter((key) => {
-      return this.state.selected[key];
-    });
+    const selectedTexts = Object.keys(this.state.selected).filter((key) =>
+      this.state.selected[key]
+    );
+    const transducer = new Transducer();
+    const userDeps = Immutable.Set(selectedTexts);
+    const depGroups = transducer.considerDependencies(userDeps);
     return (
       <div>
-        <RequirementSection
-          requirements={this.props.data.requirements}
-          selectStatus={this.state.selected}
-          onButtonClick={this.onButtonClick}
-          />
-        {selectedTexts.join(', ')}
-        {/* <ProjectSection projects={this.props.data.projects} /> */}
+        <Container>
+          <Segment color="violet" tertiary inverted>
+            <Header as="h1" icon textAlign='center'>
+              <Icon name='checkmark box' circular />
+              <Header.Content>
+                Adapt
+              </Header.Content>
+              <Header.Subheader>
+                A planning tool for using diabetes-related open source projects.
+              </Header.Subheader>
+            </Header>
+          </Segment>
+          <ProjectSection
+              projects={this.props.data.projects}
+              deps={depGroups}
+              selected={this.state.selected}
+              />
+          <UserSelection selectedTexts={selectedTexts}></UserSelection>
+          <RequirementSection
+              requirements={this.props.data.requirements}
+              selectStatus={this.state.selected}
+              onButtonClick={this.onButtonClick}
+              />
+        </Container>
       </div>
     );
   }

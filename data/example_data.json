@@ -109,15 +109,10 @@ data = {
       ]
     }
   ],
-  "requirements": [
-    {"cloud services": ["nightscout"]},
-    {"cgm": ["dexcom g4", "dexcom g4 with share", "g5", "freestyle libre"]},
-    {"smartwatches": ["pebble classic", "pebble steel", "pebble time", "pebble time steel"]},
-    {"phone": ["android", "iOS"]}
-  ],
-  "project categories": [
-    "cloud services",
-    "watchfaces"
-
-  ]
+  "requirements": {
+    "cloud services": ["nightscout"],
+    "cgm": ["dexcom g4", "dexcom g4 with share", "g5", "freestyle libre"],
+    "smartwatches": ["pebble classic", "pebble steel", "pebble time", "pebble time steel"],
+    "phone": ["android", "iOS"]
+  }
 }

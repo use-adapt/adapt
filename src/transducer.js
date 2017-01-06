@@ -1,40 +1,106 @@
-let Immutable = require('immutable');
+import Immutable from 'immutable';
 
-let data = require('../data/example_data.json');
+import * as data from '../data/data.json';
 
-let things_we_have = Immutable.Set(["pebble time", "nightscout"]);
-let everything = []
-let none = []
-let some = []
+/*
+ * Stupid name for a thing that takes a list of selected requirements and
+ * determines which projects can be built with the given list.
+ */
+class Transducer {
+  constructor() {
+    this.projects = Transducer.flattenProjects();
+  }
 
-//data is pulled from example_data.json which isincluded in index.html
-for (let project of data.projects) {
-  console.log(project);
-  for (let dependencies of project.configurations) {
-	  let dep = Immutable.Set(dependencies);
+  /*
+   * In `data.json`, projects are nested by category. This flattens the list.
+   * @returns {Immutable.Set}
+   */
+  static flattenProjects() {
+    const projects = Immutable.Map(data.projects);
+    return projects.reduce(((acc, projects, category) =>
+      acc.union(Immutable.Set(projects))),
+      Immutable.Set());
+  }
 
-	  let intersection = dep.intersect(things_we_have)
-	  //intersection of have,dep = dep => everything
-	  if (intersection.equals(dep)){
-		  console.log("Everything")
-      everything.push(project.name)
-	  }
-	  //intersection of have,dep is empty => none
-	  else if(intersection.isEmpty()) {
-		  console.log("None")
-      none.push(project.name)
-	  }
-	  //intersection of have,dep is subset of r => some
-	  else if(intersection.isSubset(dep)){
-		  console.log("Some")
-      some.push(project.name)
-	  }
+  /*
+   * Determine which projects for which we have all, some, and no dependencies.
+   * @param {Immutable.Set} userDeps - the set of selected requirements.
+   * @returns {all: Immutable.Set, some: Immutable.Set, none: Immutable.Set}
+   */
+  considerDependencies(userDeps) {
+    const empty = Immutable.Map({
+      all: new Immutable.Set(),
+      some: new Immutable.Set(),
+      none: new Immutable.Set()
+    });
+    const grouped = this.projects.groupBy(p => this.categorizeProject(p, userDeps));
+    return empty.concat(grouped).toObject();
+  }
+
+  /*
+   * Which group does `project` belong to?
+   * @param {Object} project
+   * @param {string} project.name
+   * @param {string} project.github
+   * @param {string} project.website
+   * @param {string} project.category
+   * @param {string[]} project.configurations - list of lists of dependencies.
+   * @returns {string} all, some, or none.
+   */
+  categorizeProject(project, userDeps) {
+    let some = false;
+    for (let conf of project.configurations) {
+      const projectDeps = Immutable.Set(conf);
+      const intersection = projectDeps.intersect(userDeps);
+      if (this.haveAllDependencies(projectDeps, userDeps, intersection))
+        return "all";
+      else if (this.haveSomeDependencies(projectDeps, userDeps, intersection))
+        some = true;
+    }
+    return some ? "some" : "none";
+  }
+
+  /*
+   * Does userDeps contain all requirements in projectDeps?
+   * @param {Immutable.Set} projectDeps - dependencies for a project
+   * @param {Immutable.Set} userDeps - selected requirements
+   * @param {Immutable.Set} intersection - projectDeps ⋂ userDeps
+   * @returns {bool}
+   */
+  haveAllDependencies(projectDeps, userDeps, intersection) {
+    if (projectDeps.equals(intersection))
+      return true;
+    else
+      return false;
+  }
+
+  /*
+   * Does userDeps contain some requirements in projectDeps?
+   * @param {Immutable.Set} projectDeps - dependencies for a project
+   * @param {Immutable.Set} userDeps - selected requirements
+   * @param {Immutable.Set} intersection - projectDeps ⋂ userDeps
+   * @returns {bool}
+   */
+  haveSomeDependencies(projectDeps, userDeps, intersection) {
+    if (!projectDeps.equals(intersection) && !intersection.isEmpty())
+      return true;
+    else
+      return false;
+  }
+
+  /*
+   * Does userDeps contain no requirements in projectDeps?
+   * @param {Immutable.Set} projectDeps - dependencies for a project
+   * @param {Immutable.Set} userDeps - selected requirements
+   * @param {Immutable.Set} intersection - projectDeps ⋂ userDeps
+   * @returns {bool}
+   */
+  haveNoDependencies(projectDeps, userDeps, intersection) {
+    if (projectDeps.isEmpty())
+      return true;
+    else
+      return false;
   }
 }
 
-console.log("everything")
-console.log(everything)
-console.log("none")
-console.log(none)
-console.log("some")
-console.log(some)
+export default Transducer;
