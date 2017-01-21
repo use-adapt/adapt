@@ -226,16 +226,16 @@
     ]
   },
   "requirements": {
-    "Meters": ["Verio IQ", "contour next", "contour USB"],
-    "Cloud Services": ["nightscout", "tidepool blip", "carelink"],
-    "Computer": ["macOSOS", "linux", "Windows"],
+    "Meters": ["Verio IQ", "Contour Next", "Contour USB"],
+    "Cloud Services": ["nightscout", "Tidepool Blip", "Carelink"],
+    "Computer": ["macOS", "Linux", "Windows"],
     "Phone": ["Android", "iOS"],
-    "CGM": ["Dexcom G4", "Dexcom G4 with share", "g5", "Medtronic Enlite", "Medtronic revel"],
-    "Pump": ["Medtronic 512/712", "Medtronic 515/715", "Medtronic 522/722", "Medtronic 723/523", "omnipod", "t:slim", "animas ping", "animas vibe"],
-    "Smartwatches": ["pebble classic", "pebble time", "Android wear (any)", "apple watch", "Samsung Gear"],
-    "Portable Computers": ["raspberry pi 2", "raspberry pi 3", "intel edison"],
-    "Tools/Add-Ons": ["explorer board", "intel base board", "carelink USB stick", "TI USB stick", "cc-debugger", "WiFi adapter", "micro SD card", "2.1 amp power supply/battery"],
+    "CGM": ["Dexcom G4", "Dexcom G4 with share", "G5", "Medtronic Enlite", "Medtronic Revel"],
+    "Pump": ["Medtronic 512/712", "Medtronic 515/715", "Medtronic 522/722", "Medtronic 723/523", "Omnipod", "T:slim", "Animas Ping", "Animas Vibe"],
+    "Smartwatches": ["Pebble Classic", "Pebble Time", "Android Wear (any)", "Apple Watch", "Samsung Gear"],
+    "Portable Computers": ["Raspberry Pi 2", "Raspberry Pi 3", "Intel Edison"],
+    "Tools/Add-Ons": ["Explorer Board", "Intel Base Board", "Carelink USB stick", "TI USB stick", "cc-debugger", "WiFi adapter", "Micro SD card", "2.1 amp power supply/battery"],
     "Bridges": ["xDrip", "RileyLink"],
-    "Cables": ["micro-USB cable", "mini-USB cable", "USB power supply"]
+    "Cables": ["Micro-USB cable", "Mini-USB cable", "USB power supply"]
   }
 }
