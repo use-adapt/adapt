@@ -1,20 +1,20 @@
 {
   "projects": {
-    "cloud services": [
+    "Cloud Services": [
       {
         "name": "Nightscout",
         "github": "https://github.com/nightscout/cgm-remote-monitor",
         "website": "http://www.nightscout.info/",
         "category": "cloud services",
         "configurations": [
-          ["dexcom g5", "ios"],
-          ["dexcom g4 with share", "ios"],
-          ["dexcom g4 with share", "android"],
-          ["dexcom g4", "android"],
-          ["medtronic 530g", "android"],
-          ["medtronic minimed connect", "ios"],
-          ["medtronic 640g", "android"],
-          ["freestyle libre", "android"]
+          ["Dexcom g5", "ios"],
+          ["Dexcom G4 with share", "ios"],
+          ["Dexcom G4 with share", "Android"],
+          ["Dexcom G4", "Android"],
+          ["Medtronic 530g", "Android"],
+          ["Medtronic minimed connect", "ios"],
+          ["Medtronic 640g", "Android"],
+          ["freestyle libre", "Android"]
         ]
       },
       {
@@ -23,42 +23,42 @@
         "github": "https://github.com/tidepool-org/chrome-uploader",
         "category": "cloud services",
         "configurations": [
-          ["dexcom g4", "mac", "micro-USB cable"],
-          ["dexcom g4", "windows", "micro-USB cable"],
-          ["dexcom g4 with share", "mac", "micro-USB cable"],
-          ["dexcom g4 with share", "windows", "micro-USB cable"],
-          ["dexcom g5", "mac", "micro-USB cable"],
-          ["dexcom g5", "windows", "micro-USB cable"],
-          ["omnipod", "mac", "mini-USB cable"],
-          ["omnipod", "windows", "mini-USB cable"],
-          ["t:slim", "mac", "micro-USB cable"],
-          ["t:slim", "windows", "micro-USB cable"],
-          ["t:flex", "mac", "micro-USB cable"],
-          ["t:flex", "windows", "micro-USB cable"],
-          ["t:slim G4", "mac", "micro-USB cable"],
-          ["t:slim G4", "windows", "micro-USB cable"],
-          ["t:slim X2", "mac", "micro-USB cable"],
-          ["t:slim X2", "windows", "micro-USB cable"],
-          ["medtronic 723/523", "mac", "carelink", "carelink USB stick"],
-          ["medtronic 723/523", "windows", "carelink", "carelink USB stick"],
-          ["medtronic 530g", "mac", "carelink", "carelink USB stick"],
-          ["medtronic 530g", "windows", "carelink", "carelink USB stick"],
-          ["contour next", "mac"],
-          ["contour next", "windows"],
-          ["contour next link", "mac"],
-          ["contour next link", "windows"],
-          ["contour next USB", "mac"],
-          ["contour next USB", "windows"],
-          ["contour USB", "mac"],
-          ["contour USB", "windows"],
-          ["precision xtra", "windows"],
-          ["freedom lite", "windows"],
-          ["verioiq", "mac"],
-          ["verioiq", "windows"]
+          ["Dexcom G4", "macOS", "micro-USB cable"],
+          ["Dexcom G4", "Windows", "micro-USB cable"],
+          ["Dexcom G4 with share", "macOS", "micro-USB cable"],
+          ["Dexcom G4 with share", "Windows", "micro-USB cable"],
+          ["Dexcom g5", "macOS", "micro-USB cable"],
+          ["Dexcom g5", "Windows", "micro-USB cable"],
+          ["omnipod", "macOS", "mini-USB cable"],
+          ["omnipod", "Windows", "mini-USB cable"],
+          ["t:slim", "macOS", "micro-USB cable"],
+          ["t:slim", "Windows", "micro-USB cable"],
+          ["t:flex", "macOS", "micro-USB cable"],
+          ["t:flex", "Windows", "micro-USB cable"],
+          ["t:slim G4", "macOS", "micro-USB cable"],
+          ["t:slim G4", "Windows", "micro-USB cable"],
+          ["t:slim X2", "macOS", "micro-USB cable"],
+          ["t:slim X2", "Windows", "micro-USB cable"],
+          ["Medtronic 723/523", "macOS", "carelink", "carelink USB stick"],
+          ["Medtronic 723/523", "Windows", "carelink", "carelink USB stick"],
+          ["Medtronic 530g", "macOS", "carelink", "carelink USB stick"],
+          ["Medtronic 530g", "Windows", "carelink", "carelink USB stick"],
+          ["contour next", "macOS"],
+          ["contour next", "Windows"],
+          ["contour next link", "macOS"],
+          ["contour next link", "Windows"],
+          ["contour next USB", "macOS"],
+          ["contour next USB", "Windows"],
+          ["contour USB", "macOS"],
+          ["contour USB", "Windows"],
+          ["precision xtra", "Windows"],
+          ["freedom lite", "Windows"],
+          ["verioiq", "macOS"],
+          ["verioiq", "Windows"]
         ]
       }
     ],
-    "watchfaces": [
+    "Watchfaces": [
       {
         "name": "CGM in the Sky",
         "github": null,
@@ -147,24 +147,24 @@
         ]
       }
     ],
-    "closed-loop systems": [
+    "Closed-Loop Systems": [
       {
         "name": "Loop",
         "github": "https://github.com/loopkit/loop",
         "website": null,
         "configurations": [
-          ["dexcom g4", "medtronic 515/715", "iOS", "macOS", "RileyLink"],
-          ["dexcom g4", "medtronic 522/722", "iOS", "macOS", "RileyLink"],
-          ["dexcom g4", "medtronic 523/723 w/ <2.4 firmware", "iOS", "macOS", "RileyLink"],
-          ["dexcom g4", "medtronic 554/754 w/ <2.4 firmware", "iOS", "macOS", "RileyLink"],
-          ["dexcom g4 with share", "medtronic 515/715", "iOS", "macOS", "RileyLink"],
-          ["dexcom g4 with share", "medtronic 522/722", "iOS", "macOS", "RileyLink"],
-          ["dexcom g4 with share", "medtronic 523/723 w/ <2.4 firmware", "iOS", "macOS", "RileyLink"],
-          ["dexcom g4 with share", "medtronic 554/754 w/ <2.4 firmware", "iOS", "macOS", "RileyLink"],
-          ["dexcom g5", "medtronic 515/715", "iOS", "macOS", "RileyLink"],
-          ["dexcom g5", "medtronic 522/722", "iOS", "macOS", "RileyLink"],
-          ["dexcom g5", "medtronic 523/723 w/ <2.4 firmware", "iOS", "macOS", "RileyLink"],
-          ["dexcom g5", "medtronic 554/754 w/ <2.4 firmware", "iOS", "macOS", "RileyLink"]
+          ["Dexcom G4", "Medtronic 515/715", "iOS", "macOSOS", "RileyLink"],
+          ["Dexcom G4", "Medtronic 522/722", "iOS", "macOSOS", "RileyLink"],
+          ["Dexcom G4", "Medtronic 523/723 w/ <2.4 firmware", "iOS", "macOSOS", "RileyLink"],
+          ["Dexcom G4", "Medtronic 554/754 w/ <2.4 firmware", "iOS", "macOSOS", "RileyLink"],
+          ["Dexcom G4 with share", "Medtronic 515/715", "iOS", "macOSOS", "RileyLink"],
+          ["Dexcom G4 with share", "Medtronic 522/722", "iOS", "macOSOS", "RileyLink"],
+          ["Dexcom G4 with share", "Medtronic 523/723 w/ <2.4 firmware", "iOS", "macOSOS", "RileyLink"],
+          ["Dexcom G4 with share", "Medtronic 554/754 w/ <2.4 firmware", "iOS", "macOSOS", "RileyLink"],
+          ["Dexcom g5", "Medtronic 515/715", "iOS", "macOSOS", "RileyLink"],
+          ["Dexcom g5", "Medtronic 522/722", "iOS", "macOSOS", "RileyLink"],
+          ["Dexcom g5", "Medtronic 523/723 w/ <2.4 firmware", "iOS", "macOSOS", "RileyLink"],
+          ["Dexcom g5", "Medtronic 554/754 w/ <2.4 firmware", "iOS", "macOSOS", "RileyLink"]
 
         ]
       },
@@ -173,46 +173,46 @@
         "github": "https://github.com/openaps/docs",
         "website": "http://openaps.readthedocs.io/",
         "configurations": [
-          ["dexcom g4", "raspberry pi 2 model b", "WiFi adapter", "CareLink USB stick", "micro SD card", "micro-USB cable", "2.1 amp power supply/battery"],
-          ["dexcom g4", "raspberry pi 2 model b", "WiFi adapter", "TI stick", "micro SD card", "micro-USB cable", "2.1 amp power supply/battery"],
-          ["dexcom g4", "raspberry pi 3 model b", "CareLink USB stick", "micro SD card", "micro-USB cable", "2.1 amp power supply/battery"],
-          ["dexcom g4", "raspberry pi 3 model b", "TI stick", "micro SD card", "micro-USB cable", "2.1 amp power supply/battery"],
+          ["Dexcom G4", "raspberry pi 2 model b", "WiFi adapter", "CareLink USB stick", "micro SD card", "micro-USB cable", "2.1 amp power supply/battery"],
+          ["Dexcom G4", "raspberry pi 2 model b", "WiFi adapter", "TI stick", "micro SD card", "micro-USB cable", "2.1 amp power supply/battery"],
+          ["Dexcom G4", "raspberry pi 3 model b", "CareLink USB stick", "micro SD card", "micro-USB cable", "2.1 amp power supply/battery"],
+          ["Dexcom G4", "raspberry pi 3 model b", "TI stick", "micro SD card", "micro-USB cable", "2.1 amp power supply/battery"],
 
-          ["dexcom g5", "raspberry pi 2 model b", "WiFi adapter", "CareLink USB stick", "micro SD card", "micro-USB cable", "2.1 amp power supply/battery"],
-          ["dexcom g5", "raspberry pi 2 model b", "WiFi adapter", "TI stick", "micro SD card", "micro-USB cable", "2.1 amp power supply/battery"],
-          ["dexcom g5", "raspberry pi 3 model b", "CareLink USB stick", "micro SD card", "micro-USB cable", "2.1 amp power supply/battery"],
-          ["dexcom g5", "raspberry pi 3 model b", "TI stick", "micro SD card", "micro-USB cable", "2.1 amp power supply/battery"],
+          ["Dexcom g5", "raspberry pi 2 model b", "WiFi adapter", "CareLink USB stick", "micro SD card", "micro-USB cable", "2.1 amp power supply/battery"],
+          ["Dexcom g5", "raspberry pi 2 model b", "WiFi adapter", "TI stick", "micro SD card", "micro-USB cable", "2.1 amp power supply/battery"],
+          ["Dexcom g5", "raspberry pi 3 model b", "CareLink USB stick", "micro SD card", "micro-USB cable", "2.1 amp power supply/battery"],
+          ["Dexcom g5", "raspberry pi 3 model b", "TI stick", "micro SD card", "micro-USB cable", "2.1 amp power supply/battery"],
 
-          ["dexcom g4 with share", "raspberry pi 2 model b", "WiFi adapter", "CareLink USB stick", "micro SD card", "micro-USB cable", "2.1 amp power supply/battery"],
-          ["dexcom g4 with share", "raspberry pi 2 model b", "WiFi adapter", "TI stick", "micro SD card", "micro-USB cable", "2.1 amp power supply/battery"],
-          ["dexcom g4 with share", "raspberry pi 3 model b", "CareLink USB stick", "micro SD card", "micro-USB cable", "2.1 amp power supply/battery"],
-          ["dexcom g4 with share", "raspberry pi 3 model b", "TI stick", "micro SD card", "micro-USB cable", "2.1 amp power supply/battery"],
+          ["Dexcom G4 with share", "raspberry pi 2 model b", "WiFi adapter", "CareLink USB stick", "micro SD card", "micro-USB cable", "2.1 amp power supply/battery"],
+          ["Dexcom G4 with share", "raspberry pi 2 model b", "WiFi adapter", "TI stick", "micro SD card", "micro-USB cable", "2.1 amp power supply/battery"],
+          ["Dexcom G4 with share", "raspberry pi 3 model b", "CareLink USB stick", "micro SD card", "micro-USB cable", "2.1 amp power supply/battery"],
+          ["Dexcom G4 with share", "raspberry pi 3 model b", "TI stick", "micro SD card", "micro-USB cable", "2.1 amp power supply/battery"],
 
-          ["dexcom g4", "intel edison", "lipo battery", "explorer board"],
-          ["dexcom g4", "intel edison", "lipo battery", "Intel base board", "TI USB stick"],
-          ["dexcom g4", "intel edison", "lipo battery", "Intel base board", "RileyLink"],
-          ["dexcom g4", "intel edison", "lipo battery", "Sparkfun base board", "TI USB stick"],
-          ["dexcom g4", "intel edison", "lipo battery", "Sparkfun base board", "RileyLink"],
+          ["Dexcom G4", "intel edison", "lipo battery", "explorer board"],
+          ["Dexcom G4", "intel edison", "lipo battery", "Intel base board", "TI USB stick"],
+          ["Dexcom G4", "intel edison", "lipo battery", "Intel base board", "RileyLink"],
+          ["Dexcom G4", "intel edison", "lipo battery", "Sparkfun base board", "TI USB stick"],
+          ["Dexcom G4", "intel edison", "lipo battery", "Sparkfun base board", "RileyLink"],
 
-          ["dexcom g5", "intel edison", "lipo battery", "explorer board"],
-          ["dexcom g5", "intel edison", "lipo battery", "Intel base board", "TI USB stick"],
-          ["dexcom g5", "intel edison", "lipo battery", "Intel base board", "RileyLink"],
-          ["dexcom g5", "intel edison", "lipo battery", "Sparkfun base board", "TI USB stick"],
-          ["dexcom g5", "intel edison", "lipo battery", "Sparkfun base board", "RileyLink"],
+          ["Dexcom g5", "intel edison", "lipo battery", "explorer board"],
+          ["Dexcom g5", "intel edison", "lipo battery", "Intel base board", "TI USB stick"],
+          ["Dexcom g5", "intel edison", "lipo battery", "Intel base board", "RileyLink"],
+          ["Dexcom g5", "intel edison", "lipo battery", "Sparkfun base board", "TI USB stick"],
+          ["Dexcom g5", "intel edison", "lipo battery", "Sparkfun base board", "RileyLink"],
 
-          ["dexcom g4 with share", "intel edison", "lipo battery", "explorer board"],
-          ["dexcom g4 with share", "intel edison", "lipo battery", "Intel base board", "TI USB stick"],
-          ["dexcom g4 with share", "intel edison", "lipo battery", "Intel base board", "RileyLink"],
-          ["dexcom g4 with share", "intel edison", "lipo battery", "Sparkfun base board", "TI USB stick"],
-          ["dexcom g4 with share", "intel edison", "lipo battery", "Sparkfun base board", "RileyLink"]
+          ["Dexcom G4 with share", "intel edison", "lipo battery", "explorer board"],
+          ["Dexcom G4 with share", "intel edison", "lipo battery", "Intel base board", "TI USB stick"],
+          ["Dexcom G4 with share", "intel edison", "lipo battery", "Intel base board", "RileyLink"],
+          ["Dexcom G4 with share", "intel edison", "lipo battery", "Sparkfun base board", "TI USB stick"],
+          ["Dexcom G4 with share", "intel edison", "lipo battery", "Sparkfun base board", "RileyLink"]
         ]
       }
     ],
-    "watch apps": [
+    "Watch Apps": [
     ],
-    "phone apps": [
+    "Phone Apps": [
     ],
-    "experimental": [
+    "Experimental": [
       {
         "name": "OpenOmni",
         "github": "https://github.com/openaps/openomni",
@@ -226,16 +226,16 @@
     ]
   },
   "requirements": {
-    "meters": ["verio iq", "contour next", "contour USB"],
-    "cloud services": ["nightscout", "tidepool blip", "carelink"],
-    "computer": ["macOS", "linux", "windows"],
-    "phone": ["android", "iOS"],
-    "cgm": ["dexcom g4", "dexcom g4 with share", "g5", "medtronic enlite", "medtronic revel"],
-    "pump": ["medtronic 512/712", "medtronic 515/715", "medtronic 522/722", "medtronic 723/523", "omnipod", "t:slim", "animas ping", "animas vibe"],
-    "smartwatches": ["pebble classic", "pebble time", "android wear (any)", "apple watch", "samsung gear"],
-    "portable computers": ["raspberry pi 2", "raspberry pi 3", "intel edison"],
-    "tools/add-ons": ["explorer board", "intel base board", "carelink USB stick", "TI USB stick", "cc-debugger", "WiFi adapter", "micro SD card", "2.1 amp power supply/battery"],
-    "bridges": ["xDrip", "RileyLink"],
-    "cables": ["micro-USB cable", "mini-USB cable", "USB power supply"]
+    "Meters": ["Verio IQ", "contour next", "contour USB"],
+    "Cloud Services": ["nightscout", "tidepool blip", "carelink"],
+    "Computer": ["macOSOS", "linux", "Windows"],
+    "Phone": ["Android", "iOS"],
+    "CGM": ["Dexcom G4", "Dexcom G4 with share", "g5", "Medtronic Enlite", "Medtronic revel"],
+    "Pump": ["Medtronic 512/712", "Medtronic 515/715", "Medtronic 522/722", "Medtronic 723/523", "omnipod", "t:slim", "animas ping", "animas vibe"],
+    "Smartwatches": ["pebble classic", "pebble time", "Android wear (any)", "apple watch", "Samsung Gear"],
+    "Portable Computers": ["raspberry pi 2", "raspberry pi 3", "intel edison"],
+    "Tools/Add-Ons": ["explorer board", "intel base board", "carelink USB stick", "TI USB stick", "cc-debugger", "WiFi adapter", "micro SD card", "2.1 amp power supply/battery"],
+    "Bridges": ["xDrip", "RileyLink"],
+    "Cables": ["micro-USB cable", "mini-USB cable", "USB power supply"]
   }
 }
