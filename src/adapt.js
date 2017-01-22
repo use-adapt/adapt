@@ -1,5 +1,5 @@
 import React from 'react';
-import { Item, Button, Header, Icon, Container, Segment, Grid, Checkbox, List} from 'semantic-ui-react'
+import { Divider, Item, Button, Header, Icon, Container, Segment, Grid, Checkbox, List} from 'semantic-ui-react'
 import Immutable from 'immutable';
 
 import Transducer from './transducer.js';
@@ -81,13 +81,20 @@ class Configuration extends React.Component {
     var selected = Immutable.Set(this.props.selectedTexts);
     var configuration_have = selected.intersect(configuration);
     var configuration_need = configuration.subtract(configuration_have);
+
+    var have_list = Immutable.Seq(configuration_have).map((elt, i) =>
+        (i == (configuration_have.size - 1)) ?
+            <span>{elt}</span> : <span>{elt} <strong>+</strong></span>);
+
     return (
       <List.Item key={configuration}>
         <span className='green'>
-          {configuration_have.join(' + ')}
+          {have_list}
         </span>
           | {configuration_need.join(' + ')}
+        <Divider />
       </List.Item>
+
     );
   }
 }
