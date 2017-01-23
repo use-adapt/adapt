@@ -7,7 +7,7 @@
   "bugs": {
     "url": "https://github.com/jessiepusateri/adapt/issues"
   },
-  "homepage": "http://use-adapt.github.io/adapt/",
+  "homepage": "http://use-adapt.github.io/",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/use-adapt/adapt.git"
@@ -17,7 +17,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "deploy": "npm run build && gh-pages -d build -r git@github.com:use-adapt/use-adapt.github.io"
+    "deploy": "npm run build && gh-pages -d build -r git@github.com:use-adapt/use-adapt.github.io -b master"
   },
   "devDependencies": {
     "gh-pages": "^0.12.0",
