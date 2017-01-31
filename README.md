@@ -7,7 +7,7 @@ A planning tool for using diabetes-related open source projects.
 The first step is cloning the repo:
 
 ```
-$ git clone https://github.com/jessiepusateri/adapt.git
+$ git clone --recursive https://github.com/jessiepusateri/adapt.git
 ```
 
 You need the [Yarn](https://yarnpkg.com/) package manager to build the project. Once you
