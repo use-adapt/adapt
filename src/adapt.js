@@ -82,9 +82,8 @@ class Configuration extends React.Component {
     var configuration_have = selected.intersect(configuration);
     var configuration_need = configuration.subtract(configuration_have);
 
-    var have_list = Immutable.Seq(configuration_have).map((elt, i) =>
-        (i == (configuration_have.size - 1)) ?
-            <span>{elt}</span> : <span>{elt} <strong>+</strong></span>);
+    var have_list = Immutable.List(configuration_have)
+      .interpose(<strong> + </strong>);
 
     return (
       <List.Item key={configuration}>
@@ -104,6 +103,7 @@ class ConfigurationsSection extends React.Component {
     var configurations = this.props.configurations
       .map(configuration =>
                 <Configuration
+                  key={configuration}
                   configuration={configuration}
                   selectedTexts={this.props.selectedTexts}
                 />
