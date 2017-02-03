@@ -37,3 +37,5 @@ it.
 
 [adapt_website]: https://use-adapt.github.io/
 [website_repo]: https://github.com/use-adapt/use-adapt.github.io/
+
+Enjoy!
