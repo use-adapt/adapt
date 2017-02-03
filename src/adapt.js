@@ -83,7 +83,10 @@ class Configuration extends React.Component {
     var configuration_need = configuration.subtract(configuration_have);
 
     var have_list = Immutable.List(configuration_have)
-      .interpose(<strong> + </strong>);
+      .interpose('+').map((e, i) =>
+        e === '+'
+        ? <strong key={'+'+i}> + </strong>
+        : <span key={e}>{e}</span>);
 
     return (
       <List.Item key={configuration}>
@@ -174,7 +177,7 @@ class ProjectCard extends React.Component {
     else {
       project_info = Object.keys(this.props.selectedProject).map((key) => {
         return (
-            <List.Item>
+            <List.Item key={key}>
             <ProjectCardSection
               attribute={key}
               value={this.props.selectedProject[key]}
