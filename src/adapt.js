@@ -327,18 +327,18 @@ class Adapt extends React.Component {
     const depGroups = transducer.considerDependencies(userDeps);
     return (
       <div>
+        <Segment color="teal" tertiary inverted>
+          <Header as="h1" icon textAlign='center'>
+            <Icon name='checkmark box' circular />
+            <Header.Content>
+              Adapt
+            </Header.Content>
+            <Header.Subheader>
+              A planning tool for using diabetes-related open source projects.
+            </Header.Subheader>
+          </Header>
+        </Segment>
         <Container>
-          <Segment color="teal" tertiary inverted>
-            <Header as="h1" icon textAlign='center'>
-              <Icon name='checkmark box' circular />
-              <Header.Content>
-                Adapt
-              </Header.Content>
-              <Header.Subheader>
-                A planning tool for using diabetes-related open source projects.
-              </Header.Subheader>
-            </Header>
-          </Segment>
           <RequirementSection
               requirements={this.props.data.requirements}
               selectStatus={this.state.selected}
