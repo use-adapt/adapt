@@ -4,8 +4,6 @@ import Immutable from 'immutable';
 
 import Transducer from './transducer.js';
 
-var _ = require('lodash');
-
 class Requirement extends React.Component {
   render() {
     return (
@@ -170,21 +168,19 @@ class ProjectCardSection extends React.Component {
 
 class ProjectCard extends React.Component {
   render() {
-    var project_info = "";
-    if (_.isEmpty(this.props.selectedProject)){
-      project_info = "NO PROJECT SELECTED";
-    }
-    else {
+    let project_info = "NO PROJECT SELECTED";
+    if (this.props.selectedProject === {}) {
+      console.log(this.props.selectedProject)
       project_info = Object.keys(this.props.selectedProject).map((key) => {
-        return (
-            <List.Item key={key}>
-            <ProjectCardSection
-              attribute={key}
-              value={this.props.selectedProject[key]}
-              selectedTexts={this.props.selectedTexts}
-              />
-            </List.Item>
-        )
+      return (
+        <List.Item key={key}>
+        <ProjectCardSection
+          attribute={key}
+          value={this.props.selectedProject[key]}
+          selectedTexts={this.props.selectedTexts}
+          />
+        </List.Item>
+      )
       });
     }
     return (
