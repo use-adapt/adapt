@@ -250,7 +250,7 @@ class ProjectSection extends React.Component {
                 />
           ).toList();
     return (
-    <Grid verticalAlign='middle' divided stackable centered columns={2}>
+    <Grid divided stackable centered columns={2}>
       <Header as="h2">Open-Source Projects</Header>
       <Grid.Row>
         <Grid.Column>
