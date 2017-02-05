@@ -4,8 +4,6 @@ import Immutable from 'immutable';
 
 import Transducer from './transducer.js';
 
-var _ = require('lodash');
-
 class Requirement extends React.Component {
   render() {
     return (
@@ -170,21 +168,19 @@ class ProjectCardSection extends React.Component {
 
 class ProjectCard extends React.Component {
   render() {
-    var project_info = "";
-    if (_.isEmpty(this.props.selectedProject)){
-      project_info = "NO PROJECT SELECTED";
-    }
-    else {
+    let project_info = "NO PROJECT SELECTED";
+    if (this.props.selectedProject === {}) {
+      console.log(this.props.selectedProject)
       project_info = Object.keys(this.props.selectedProject).map((key) => {
-        return (
-            <List.Item key={key}>
-            <ProjectCardSection
-              attribute={key}
-              value={this.props.selectedProject[key]}
-              selectedTexts={this.props.selectedTexts}
-              />
-            </List.Item>
-        )
+      return (
+        <List.Item key={key}>
+        <ProjectCardSection
+          attribute={key}
+          value={this.props.selectedProject[key]}
+          selectedTexts={this.props.selectedTexts}
+          />
+        </List.Item>
+      )
       });
     }
     return (
@@ -327,18 +323,18 @@ class Adapt extends React.Component {
     const depGroups = transducer.considerDependencies(userDeps);
     return (
       <div>
+        <Segment color="teal" tertiary inverted>
+          <Header as="h1" icon textAlign='center'>
+            <Icon name='checkmark box' circular />
+            <Header.Content>
+              Adapt
+            </Header.Content>
+            <Header.Subheader>
+              A planning tool for using diabetes-related open source projects.
+            </Header.Subheader>
+          </Header>
+        </Segment>
         <Container>
-          <Segment color="teal" tertiary inverted>
-            <Header as="h1" icon textAlign='center'>
-              <Icon name='checkmark box' circular />
-              <Header.Content>
-                Adapt
-              </Header.Content>
-              <Header.Subheader>
-                A planning tool for using diabetes-related open source projects.
-              </Header.Subheader>
-            </Header>
-          </Segment>
           <RequirementSection
               requirements={this.props.data.requirements}
               selectStatus={this.state.selected}
