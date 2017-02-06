@@ -145,22 +145,26 @@ class ProjectCardSection extends React.Component {
       title = "Category";
     }
     if (this.props.attribute === "website"){
-      icon = <Icon name='zip' />
+      icon = <Icon name='linkify' />
       title = "Website";
       value = <a href={value}>{value}</a>;
     }
     if (this.props.attribute === "configurations"){
-      return <ConfigurationsSection
-                configurations={value}
-                selectedTexts={this.props.selectedTexts}
-                />
+      return <List.Item key={this.props.attribute}>
+                <ConfigurationsSection
+                  configurations={value}
+                  selectedTexts={this.props.selectedTexts}
+                  />
+             </List.Item>
     }
     return (
+      <List.Item key={this.props.attribute}>
       <div>
         {icon}
         <Header>{title}</Header>
         {value}
       </div>
+      </List.Item>
     );
   }
 }
@@ -173,16 +177,15 @@ class ProjectCard extends React.Component {
       console.log(this.props.selectedProject)
       project_info = Object.keys(this.props.selectedProject).map((key) => {
       return (
-        <List.Item key={key}>
         <ProjectCardSection
           attribute={key}
           value={this.props.selectedProject[key]}
           selectedTexts={this.props.selectedTexts}
           />
-        </List.Item>
       )
       });
     }
+
 
     return (
       <Segment color="teal">
