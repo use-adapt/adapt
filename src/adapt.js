@@ -60,7 +60,7 @@ class RequirementSection extends React.Component {
     });
     return (
       <div>
-        <Header as="h2" textAlign="center">
+        <Header as="h1" textAlign="center">
           Requirements
         </Header>
       <Segment color="teal">
@@ -205,15 +205,15 @@ class ProjectCard extends React.Component {
 
 class Project extends React.Component {
   render() {
-    let color = 'grey';
+    let color = 'black';
     if (this.props.deps.all.has(this.props.project)) {
       color = 'green';
     }
     else if (this.props.deps.some.has(this.props.project)) {
-      color = 'yellow';
+      color = 'blue';
     }
     else if (this.props.deps.none.has(this.props.project)) {
-      color = 'grey';
+      color = 'black';
     }
     return (
       <Button name={this.props.name} onClick={this.props.onProjectClick} size='small' color={color}>
@@ -244,6 +244,28 @@ class ProjectCategory extends React.Component {
   }
 }
 
+class ProjectLegend extends React.Component {
+  render() {
+    return (
+      <div>
+        <Segment textAlign='center' color="teal" compact>
+        <Button.Group>
+        <Button size='small' color='green'>
+          You have everything you need.
+        </Button>
+        <Button size='small' color='blue'>
+          You have some of what you need.
+        </Button>
+        <Button size='small' color='black'>
+          You have none of what you need.
+        </Button>
+        </Button.Group>
+      </Segment>
+      </div>
+    );
+  }
+}
+
 class ProjectSection extends React.Component {
   render() {
     const projects = Immutable.Map(this.props.projects)
@@ -257,22 +279,28 @@ class ProjectSection extends React.Component {
                 />
           ).toList();
     return (
-    <Grid divided stackable centered columns={2}>
-      <Header as="h2">Open-Source Projects</Header>
-      <Grid.Row>
-        <Grid.Column>
-          <Segment.Group compact>
-           {projects}
-          </Segment.Group>
-        </Grid.Column>
-        <Grid.Column>
-          <ProjectCard
-            selectedTexts={this.props.selectedTexts}
-            selectedProject={this.props.selectedProject}
-            />
-        </Grid.Column>
-      </Grid.Row>
-    </Grid>
+      <div>
+        <Header textAlign='center' as="h1">Open-Source Projects</Header>
+        <center>
+          <ProjectLegend />
+        </center>
+        <Divider/>
+        <Grid divided stackable centered columns={2}>
+          <Grid.Row>
+            <Grid.Column>
+              <Segment.Group compact>
+                {projects}
+              </Segment.Group>
+            </Grid.Column>
+            <Grid.Column>
+              <ProjectCard
+                selectedTexts={this.props.selectedTexts}
+                selectedProject={this.props.selectedProject}
+                />
+            </Grid.Column>
+          </Grid.Row>
+        </Grid>
+      </div>
     );
   }
 }
