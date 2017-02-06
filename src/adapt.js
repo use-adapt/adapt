@@ -130,6 +130,9 @@ class ProjectCardSection extends React.Component {
     if (this.props.attribute === "name"){
       return null;
     }
+    if (this.props.value === null) {
+      return null;
+    }
     if (this.props.attribute === "image"){
       return <Image src={value} centered shape='rounded' />;
     }
