@@ -1,5 +1,5 @@
 import React from 'react';
-import { Divider, Item, Button, Header, Icon, Container, Segment, Grid, Checkbox, List} from 'semantic-ui-react'
+import { Divider, Item, Button, Header, Icon, Container, Segment, Grid, Checkbox, List, Image} from 'semantic-ui-react'
 import Immutable from 'immutable';
 
 import Transducer from './transducer.js';
@@ -129,6 +129,9 @@ class ProjectCardSection extends React.Component {
 
     if (this.props.attribute === "name"){
       return null;
+    }
+    if (this.props.attribute === "image"){
+      return <Image src={value} centered shape='rounded' />;
     }
     if (this.props.attribute === "github"){
       icon = <Icon name='github' />
