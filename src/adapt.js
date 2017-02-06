@@ -121,77 +121,46 @@ class ConfigurationsSection extends React.Component {
   }
 }
 
-class ProjectCardSection extends React.Component {
+class ProjectCardImage extends React.Component {
   render() {
-    var icon = null;
-    var title = this.props.attribute;
-    var value = this.props.value;
+    if (!this.props.value) {
+      return null;
+    }
 
-    if (this.props.attribute === "name"){
-      return null;
-    }
-    if (this.props.value === null) {
-      return null;
-    }
-    if (this.props.attribute === "image"){
-      return <Image src={value} centered shape='rounded' />;
-    }
-    if (this.props.attribute === "github"){
-      icon = <Icon name='github' />
-      title = "Github";
-      value = <a href={value}>Link</a>;
-    }
-    if (this.props.attribute === "pebble_store"){
-      icon = <Icon name='cart' />
-      title = "Pebble Store";
-      value = <a href={value}>Link</a>;
-    }
-    if (this.props.attribute === "category"){
-      icon = <Icon name='zip' />
-      title = "Category";
-    }
-    if (this.props.attribute === "website"){
-      icon = <Icon name='linkify' />
-      title = "Website";
-      value = <a href={value}>{value}</a>;
-    }
-    if (this.props.attribute === "configurations"){
-      return <List.Item key={this.props.attribute}>
-                <ConfigurationsSection
-                  configurations={value}
-                  selectedTexts={this.props.selectedTexts}
-                  />
-             </List.Item>
-    }
     return (
-      <List.Item key={this.props.attribute}>
-      <div>
-        {icon}
-        <Header>{title}</Header>
-        {value}
-      </div>
+      <List.Item key='image'>
+        <Image src={this.props.value} centered shape='rounded' />
       </List.Item>
     );
   }
 }
 
+class ProjectCardSection extends React.Component {
+  render() {
+    if (this.props.href === null) {
+      return null;
+    }
+
+    let icon = this.props.icon ? <Icon name={this.props.icon} /> : null;
+    let link = this.props.href ? <a href={this.props.href}>Link</a> : null;
+    return (
+      <List.Item key={this.props.attribute}>
+        <div>
+          {icon}
+          <Header>{this.props.title}</Header>
+          {link}
+        </div>
+      </List.Item>
+    );
+  }
+}
 
 class ProjectCard extends React.Component {
   render() {
-    let project_info = "";
-    if (this.props.selectedProject !== {}) {
-      console.log(this.props.selectedProject)
-      project_info = Object.keys(this.props.selectedProject).map((key) => {
-      return (
-        <ProjectCardSection
-          attribute={key}
-          value={this.props.selectedProject[key]}
-          selectedTexts={this.props.selectedTexts}
-          />
-      )
-      });
+    if (Object.keys(this.props.selectedProject).length === 0
+      && this.props.selectedProject.constructor === Object) {
+      return null;
     }
-
 
     return (
       <Segment color="teal">
@@ -199,9 +168,30 @@ class ProjectCard extends React.Component {
             {this.props.selectedProject.name}
           </Header>
           <List celled>
-            {project_info}
+            <ProjectCardImage value={this.props.selectedProject.image} />
+            <ProjectCardSection
+              attribute='website'
+              title='Website'
+              icon='linkify'
+              href={this.props.selectedProject.website} />
+            <ProjectCardSection
+              attribute='github'
+              title='Github'
+              icon='github'
+              href={this.props.selectedProject.github} />
+            <ProjectCardSection
+              attribute='store'
+              title='Pebble Store'
+              icon='cart'
+              href={this.props.selectedProject.pebble_store} />
+            <List.Item key={this.props.attribute}>
+              <ConfigurationsSection
+                configurations={this.props.selectedProject.configurations}
+                selectedTexts={this.props.selectedTexts}
+              />
+            </List.Item>
           </List>
-      </Segment>
+        </Segment>
     );
   }
 }
