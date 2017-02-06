@@ -168,8 +168,8 @@ class ProjectCardSection extends React.Component {
 
 class ProjectCard extends React.Component {
   render() {
-    let project_info = "NO PROJECT SELECTED";
-    if (this.props.selectedProject === {}) {
+    let project_info = "";
+    if (this.props.selectedProject !== {}) {
       console.log(this.props.selectedProject)
       project_info = Object.keys(this.props.selectedProject).map((key) => {
       return (
@@ -183,6 +183,7 @@ class ProjectCard extends React.Component {
       )
       });
     }
+
     return (
       <Segment color="teal">
           <Header as="h2">
