@@ -75,26 +75,32 @@ class RequirementSection extends React.Component {
 
 class Configuration extends React.Component {
   render() {
-    var configuration = Immutable.Set(this.props.configuration);
-    var selected = Immutable.Set(this.props.selectedTexts);
-    var configuration_have = selected.intersect(configuration);
-    var configuration_need = configuration.subtract(configuration_have);
+    const configuration = Immutable.Set(this.props.configuration);
+    const selected = Immutable.Set(this.props.selectedTexts);
+    const configuration_have = selected.intersect(configuration);
+    const configuration_need = configuration.subtract(configuration_have);
 
-    var have_list = Immutable.List(configuration_have)
+    const have_list = Immutable.List(configuration_have)
       .interpose('+').map((e, i) =>
         e === '+'
-        ? <strong key={'+'+i}> + </strong>
+        ? <strong key={'have+'+i}> + </strong>
+        : <span key={e} className='green'>{e}</span>);
+    const need_list = Immutable.List(configuration_need)
+      .interpose('+').map((e, i) =>
+        e === '+'
+        ? <strong key={'need+'+i}> + </strong>
         : <span key={e}>{e}</span>);
 
     return (
       <List.Item key={configuration}>
-        <span className='green'>
+        <div className='text-left'>
           {have_list}
-        </span>
-          | {configuration_need.join(' + ')}
+        </div>
+        <div className='text-right'>
+          {need_list}
+        </div>
         <Divider />
       </List.Item>
-
     );
   }
 }
