@@ -1,6 +1,6 @@
 {
   "name": "adapt",
-  "version": "0.0.0",
+  "version": "0.0.1-alpha",
   "description": "A planning tool for using diabetes-related open source projects.",
   "author": "Jessie Pusateri",
   "license": "MIT",
