@@ -81,18 +81,19 @@ class Configuration extends React.Component {
     const configuration_need = configuration.subtract(configuration_have);
 
     const have_list = Immutable.List(configuration_have)
-      .map((e, i) =>
-        <span key={e}>{e} <strong key={'+'+i}> + </strong></span>
-      );
+      .interpose('+').map((e, i) =>
+        e === '+'
+        ? <strong key={'have+'+i}> + </strong>
+        : <span key={e} className='green'>{e}</span>);
     const need_list = Immutable.List(configuration_need)
       .interpose('+').map((e, i) =>
         e === '+'
-        ? <strong key={'+'+i}> + </strong>
+        ? <strong key={'need+'+i}> + </strong>
         : <span key={e}>{e}</span>);
 
     return (
       <List.Item key={configuration}>
-        <div className='green text-left'>
+        <div className='text-left'>
           {have_list}
         </div>
         <div className='text-right'>
@@ -100,7 +101,6 @@ class Configuration extends React.Component {
         </div>
         <Divider />
       </List.Item>
-
     );
   }
 }
