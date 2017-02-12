@@ -2,6 +2,33 @@
 
 A planning tool for using diabetes-related open source projects.
 
+## To Do
+
+### Features
+- [ ] Include relevant reading material for projects/configurations
+- [ ] Indicate configurations as "preferred"/"substandard"/"discontinued"/"beta"
+- [ ] Add requirement info modal
+Assign approximate costs to each requirement
+
+### Tests
+- [ ] Add continuous integration (TravisCI)
+- [ ] Write unit tests for Transducer class
+- [ ] Check to make sure configuration elements/requirements are in sync
+
+### Bugs
+- [ ] Package install fails
+
+### README
+- [ ] Add badges
+- [ ] Add logo
+
+### Misc.
+- [ ] Standardize Javascript style
+- [ ] UI - create two columns for project list
+- [ ] Git Hook - yarn deploy on every commit to master
+- [ ] Add a description
+- [ ] Alphabetize everything
+
 ## Contributing
 
 The first step is cloning the repo:
