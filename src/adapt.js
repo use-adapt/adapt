@@ -133,23 +133,28 @@ class ProjectCardSection extends React.Component {
     var title = this.props.attribute;
     var value = this.props.value;
 
-    if (this.props.attribute === "name"){
+    if (["name", "image_source"].includes(this.props.attribute)){
       return null;
     }
     if (this.props.value === null) {
       return null;
     }
     if (this.props.attribute === "image"){
-      return <Image src={value} centered shape='rounded' />;
+      return(
+        <div>
+          <Image size='small'  src={value} centered shape='rounded' />
+          (Source: <a href={this.props.project.image_source}>{this.props.project.image_source}</a>)
+        </div>
+        );
     }
     if (this.props.attribute === "github"){
       icon = <Icon name='github' />
       title = "Github";
       value = <a href={value}>Link</a>;
     }
-    if (this.props.attribute === "pebble_store"){
+    if (this.props.attribute === "store"){
       icon = <Icon name='cart' />
-      title = "Pebble Store";
+      title = "App Store";
       value = <a href={value}>Link</a>;
     }
     if (this.props.attribute === "category"){
@@ -192,6 +197,7 @@ class ProjectCard extends React.Component {
         <ProjectCardSection
           attribute={key}
           value={this.props.selectedProject[key]}
+          project={this.props.selectedProject}
           selectedTexts={this.props.selectedTexts}
           />
       )
