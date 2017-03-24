@@ -2,6 +2,21 @@ import Immutable from 'immutable';
 
 import * as data from '../data/data.json';
 
+class ConfigurationGrouper {
+  groupConfigurations(selected) {
+    const projects = Immutable.Map(projects);
+    const selected = Immutable.Set(selected);
+    projects.map((project) =>
+      project.configurations.map(Immutable.Set).groupBy((configuration) =>
+        categorizeConfiguration(configuration, selected)
+      )
+    );
+  }
+
+  categorizeConfiguration(configuration, selected) {
+  }
+}
+
 /*
  * Stupid name for a thing that takes a list of selected requirements and
  * determines which projects can be built with the given list.
