@@ -37,8 +37,11 @@ The first step is cloning the repo:
 $ git clone --recursive https://github.com/use-adapt/adapt.git
 ```
 
-You need the [Yarn](https://yarnpkg.com/) package manager to build the project. Once you
-have it installed,
+Next, go to [Yarn](https://yarnpkg.com/) package manager and install it. (You'll need this on your computer to build the project.)
+
+Also, do `curl https://raw.githubusercontent.com/facebookincubator/create-react-app/master/packages/react-scripts/.eslintrc > node_modules/react-scripts/.eslintrc` if this is a fresh machine.
+
+Then: 
 
 ```
 $ cd adapt
@@ -61,6 +64,12 @@ $ yarn deploy
 
 from the root of the project. It will create a production build for you and push
 it.
+
+## Troubleshooting
+
+You may get an error that suggests you may need the latest npm and node.js. To update yours:
+
+`npm install npm@latest -g`
 
 [adapt_website]: https://use-adapt.github.io/
 [website_repo]: https://github.com/use-adapt/use-adapt.github.io/
