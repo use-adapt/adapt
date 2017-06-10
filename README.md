@@ -39,8 +39,6 @@ $ git clone --recursive https://github.com/use-adapt/adapt.git
 
 Next, go to [Yarn](https://yarnpkg.com/) package manager and install it. (You'll need this on your computer to build the project.)
 
-Also, do `curl https://raw.githubusercontent.com/facebookincubator/create-react-app/master/packages/react-scripts/.eslintrc > node_modules/react-scripts/.eslintrc` if this is a fresh machine.
-
 Then: 
 
 ```
