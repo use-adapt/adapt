@@ -1,5 +1,7 @@
 # adapt
 
+[![Build Status](https://travis-ci.org/use-adapt/adapt.svg?branch=master)](https://travis-ci.org/use-adapt/adapt)
+
 A planning tool for using diabetes-related open source projects.
 
 ## To Do
