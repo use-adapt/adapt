@@ -1,5 +1,7 @@
 import React from 'react';
-import { Divider, Item, Button, Header, Icon, Container, Segment, Grid, Checkbox, List, Image} from 'semantic-ui-react'
+import {
+  Divider, Item, Button, Header, Icon, Container, Segment, Grid, Checkbox, List, Image
+} from 'semantic-ui-react';
 import Immutable from 'immutable';
 
 import Transducer from './transducer.js';
@@ -186,10 +188,10 @@ class ProjectCard extends React.Component {
   render() {
     let project_info = "";
     if (this.props.selectedProject !== {}) {
-      console.log(this.props.selectedProject)
-      project_info = Object.keys(this.props.selectedProject).map((key) => {
+      project_info = Object.keys(this.props.selectedProject).map((key, i) => {
       return (
         <ProjectCardSection
+          key={i}
           attribute={key}
           value={this.props.selectedProject[key]}
           selectedTexts={this.props.selectedTexts}

@@ -1,6 +1,6 @@
 import Immutable from 'immutable';
 
-import * as data from './data.json';
+import data from './data.json';
 
 /*
  * Stupid name for a thing that takes a list of selected requirements and

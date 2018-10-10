@@ -2,11 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Adapt from './adapt.js';
 
-import * as sampleData from './data.json';
-
-console.log(sampleData);
+import data from './data.json';
 
 ReactDOM.render(
-  <Adapt data={sampleData} />,
+  <Adapt data={data} />,
   document.getElementById('root')
 );
