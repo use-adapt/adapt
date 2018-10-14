@@ -4,7 +4,7 @@ import {
 } from 'semantic-ui-react';
 import Immutable from 'immutable';
 
-import Transducer from './transducer.js';
+import DependencyValidator from './dependencyValidator';
 import data from './data.json';
 
 class Requirement extends React.Component {
@@ -332,7 +332,7 @@ class Adapt extends React.Component {
     super(props);
     const selected = {};
     const project = {};
-    this.transducer = new Transducer(data);
+    this.dependencyValidator = new DependencyValidator(data);
     Object.keys(props.data.requirements).forEach((name) => {
       props.data.requirements[name].forEach((item) => {
         selected[item] = false;
@@ -355,7 +355,7 @@ class Adapt extends React.Component {
 
   onProjectClick = (e) => {
     const name = e.target.getAttribute('name');
-    const project = this.transducer.projects.filter(p => p.name === name).first();
+    const project = this.dependencyValidator.projects.filter(p => p.name === name).first();
     this.setState({
       selectedProject: project,
     });
@@ -366,7 +366,7 @@ class Adapt extends React.Component {
       this.state.selected[key]
     );
     const userDeps = Immutable.Set(selectedTexts);
-    const depGroups = this.transducer.considerDependencies(userDeps);
+    const depGroups = this.dependencyValidator.considerDependencies(userDeps);
     return (
       <div>
         <Segment color="teal" tertiary inverted>

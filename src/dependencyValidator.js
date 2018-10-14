@@ -59,16 +59,16 @@ const categorize = (project, userDeps) => {
 
 
 /*
- * Stupid name for a thing that takes a list of selected requirements and
- * determines which projects can be built with the given list.
+ * Takes a list of selected requirements and determines which projects
+ * can be built with the given list.
  */
-export default class Transducer {
+export default class DependencyValidator {
   constructor(data) {
     this.projects = flattenProjects(data);
   }
 
   /*
-   * Determine which projects for which we have all, some, and no dependencies.
+   * Determine projects for which we have all, some, and no dependencies.
    * @param {Immutable.Set} userDeps - the set of selected requirements.
    * @returns {all: Immutable.Set, some: Immutable.Set, none: Immutable.Set}
    */
