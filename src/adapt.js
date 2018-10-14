@@ -5,6 +5,7 @@ import {
 import Immutable from 'immutable';
 
 import Transducer from './transducer.js';
+import data from './data.json';
 
 class Requirement extends React.Component {
   render() {
@@ -331,6 +332,7 @@ class Adapt extends React.Component {
     super(props);
     const selected = {};
     const project = {};
+    this.transducer = new Transducer(data);
     Object.keys(props.data.requirements).forEach((name) => {
       props.data.requirements[name].forEach((item) => {
         selected[item] = false;
@@ -353,8 +355,7 @@ class Adapt extends React.Component {
 
   onProjectClick = (e) => {
     const name = e.target.getAttribute('name');
-    const projects = Transducer.flattenProjects();
-    const project = projects.filter(p => p.name === name).first();
+    const project = this.transducer.projects.filter(p => p.name === name).first();
     this.setState({
       selectedProject: project,
     });
@@ -364,9 +365,8 @@ class Adapt extends React.Component {
     const selectedTexts = Object.keys(this.state.selected).filter((key) =>
       this.state.selected[key]
     );
-    const transducer = new Transducer();
     const userDeps = Immutable.Set(selectedTexts);
-    const depGroups = transducer.considerDependencies(userDeps);
+    const depGroups = this.transducer.considerDependencies(userDeps);
     return (
       <div>
         <Segment color="teal" tertiary inverted>
