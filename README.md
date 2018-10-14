@@ -10,15 +10,15 @@ A planning tool for using diabetes-related open source projects.
 - [ ] Include relevant reading material for projects/configurations
 - [ ] Indicate configurations as "preferred"/"substandard"/"discontinued"/"beta"
 - [ ] Add requirement info modal
-Assign approximate costs to each requirement
+- [ ] Assign approximate costs to each requirement
 
 ### Tests
 - [ ] Add continuous integration (TravisCI)
-- [ ] Write unit tests for Transducer class
+- [x] Write unit tests for Transducer class
 - [ ] Check to make sure configuration elements/requirements are in sync
 
 ### Bugs
-- [ ] Package install fails
+- [x] Package install fails
 
 ### README
 - [ ] Add badges
@@ -29,7 +29,7 @@ Assign approximate costs to each requirement
 - [ ] UI - create two columns for project list
 - [ ] Git Hook - yarn deploy on every commit to master
 - [ ] Add a description
-- [ ] Alphabetize everything
+- [x] Alphabetize everything
 
 ## Contributing
 
@@ -41,7 +41,7 @@ $ git clone --recursive https://github.com/use-adapt/adapt.git
 
 Next, go to [Yarn](https://yarnpkg.com/) package manager and install it. (You'll need this on your computer to build the project.)
 
-Then: 
+Then:
 
 ```
 $ cd adapt
