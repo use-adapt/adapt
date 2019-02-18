@@ -355,7 +355,7 @@ class Adapt extends React.Component {
 
   onProjectClick = (e) => {
     const name = e.target.getAttribute('name');
-    const project = this.dependencyValidator.projects.filter(p => p.name === name).first();
+    const project = this.dependencyValidator.projects.find(p => p.name === name);
     this.setState({
       selectedProject: project,
     });

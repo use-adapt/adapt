@@ -14,7 +14,7 @@ A planning tool for using diabetes-related open source projects.
 
 ### Tests
 - [ ] Add continuous integration (TravisCI)
-- [x] Write unit tests for Transducer class
+- [x] Write unit tests for DependencyValidator class
 - [ ] Check to make sure configuration elements/requirements are in sync
 
 ### Bugs
