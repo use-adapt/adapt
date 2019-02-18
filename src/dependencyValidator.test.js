@@ -1,5 +1,5 @@
 import Immutable from 'immutable';
-import Transducer from './transducer';
+import DependencyValidator from './dependencyValidator';
 
 const pebbleWatchface = {
   name:  "Nightscout for Pebble",
@@ -53,11 +53,11 @@ const baseData = () => ({
     Experimental: [openOmni, autotune],
 }})
 
-describe('Transducer', () => {
+describe('DependencyValidator', () => {
   describe('flattenProjects', () => {
     it('flattens projects into a single set', () => {
-      const transducer = new Transducer(baseData());
-      expect(transducer.projects).toEqual(Immutable.Set([
+      const validator = new DependencyValidator(baseData());
+      expect(validator.projects).toEqual(Immutable.Set([
         pebbleWatchface, openOmni, autotune
       ]));
     });
@@ -65,24 +65,24 @@ describe('Transducer', () => {
 
   describe('considerDependencies', () => {
     it('returns empty sets for no projects', () => {
-      const transducer = new Transducer([]);
-      expect(transducer.considerDependencies()).toEqual({
+      const validator = new DependencyValidator([]);
+      expect(validator.considerDependencies()).toEqual({
         all: new Immutable.Set(),
         some: new Immutable.Set(),
         none: new Immutable.Set(),
       });
     });
     it('returns all as empty with no user deps', () => {
-      const transducer = new Transducer(baseData());
-      expect(transducer.considerDependencies()).toEqual({
+      const validator = new DependencyValidator(baseData());
+      expect(validator.considerDependencies()).toEqual({
         all: new Immutable.Set(),
         some: new Immutable.Set(),
         none: new Immutable.Set([pebbleWatchface, openOmni, autotune]),
       });
     });
     it('returns mapped projects with met dependencies', () => {
-      const transducer = new Transducer(baseData());
-      expect(transducer.considerDependencies(["Nightscout", "Loop"])).toEqual({
+      const validator = new DependencyValidator(baseData());
+      expect(validator.considerDependencies(["Nightscout", "Loop"])).toEqual({
         all: new Immutable.Set([autotune]),
         some: new Immutable.Set([pebbleWatchface]),
         none: new Immutable.Set([openOmni]),
